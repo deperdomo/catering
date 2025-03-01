@@ -1,0 +1,20 @@
+.contenido {
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+/* h3, h4 {
+  margin-left: 120px;
+} */
+
+h3 {
+  color: #4e0ecb;
+  font-size: 20px;
+  font-weight: 600;
+}
+h4 {
+  font-family: 'Libre Baskerville';
+  font-size: 35px;
+  font-weight: 800;
+  margin-top: 15px;
+}
