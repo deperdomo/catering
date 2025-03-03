@@ -1,0 +1,20 @@
+.contenido {
+  background-color: #e0dfe1;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.cont-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+.app-servicio {
+  width: 450px;
+  margin: 15px;
+}
+
