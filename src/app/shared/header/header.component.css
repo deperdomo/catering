@@ -5,19 +5,18 @@
 .contact-info {
   display: flex;
   align-items: center;
-  border: 3px solid rgba(255,255,255,0.3);
+  border: 2px solid #ffffff;
   padding: 10px 15px;
-  border-radius: 30px;
+  border-radius: 5px;
   margin-right: 60px;
   transition: all 0.3s ease;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(5px);
+  background: #270668;
+  
 }
 
 .contact-info:hover {
-  border-color: white;
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
+  border-color: #450aba;
+  background: #450aba;
 }
 
 .email-icon {
