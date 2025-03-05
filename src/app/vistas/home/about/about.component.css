@@ -19,10 +19,8 @@
   max-width: 500px;
 }
 .cont-imagen {
-  margin-top: 80px;
-  margin-bottom: 80px;
-  margin-right: 100px;
-  height: 500px;
+  margin: 80px 80px 80px 20px;
+  height: 450px;
   overflow: hidden;
   border-radius: 22px;
 }
@@ -36,7 +34,7 @@
 button {
   background-color: #f0f0f0;
   color: black;
-  padding: 18px 35px;
+  padding: 15px 30px;
   border: solid 2px #000000;
   font-weight: 600;
   border-radius: 5px;
