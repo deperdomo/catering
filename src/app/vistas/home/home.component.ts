@@ -6,10 +6,11 @@ import { ServiciosComponent } from "./servicios/servicios.component";
 import { PersonalComponent } from './personal/personal.component';
 import { FormContactoComponent } from "./form-contacto/form-contacto.component";
 import { FooterComponent } from "./footer/footer.component";
+import { GaleriaComponent } from "./galeria/galeria.component";
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent, BanerComponent, AboutComponent, ServiciosComponent, PersonalComponent, FormContactoComponent, FooterComponent],
+  imports: [HeaderComponent, BanerComponent, AboutComponent, ServiciosComponent, PersonalComponent, FormContactoComponent, FooterComponent, GaleriaComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

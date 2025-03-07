@@ -4,7 +4,7 @@ import { SectionTitleComponent } from "../../../shared/section-title/section-tit
 
 @Component({
   selector: 'app-personal',
-  imports: [PersonalComponent, PersonaComponent, SectionTitleComponent],
+  imports: [PersonaComponent, SectionTitleComponent],
   templateUrl: './personal.component.html',
   styleUrl: './personal.component.css'
 })

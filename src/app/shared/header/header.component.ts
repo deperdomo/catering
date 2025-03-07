@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 @Component({
   selector: 'app-header',
@@ -23,10 +27,19 @@ export class HeaderComponent {
     setTimeout(() => {
       const section = document.getElementById(id);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const offset = 150; // Altura deseada para el espacio superior
+        const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
+        
+        // Uso de GSAP para un scroll más bonito
+        gsap.to(window, {
+          scrollTo: sectionPosition,
+          duration: 1.5, // Duración del desplazamiento en segundos
+          ease: 'power2.out' // Efecto de suavizado
+        });
       }
     }, 100);
   }
+  
 
 
 }
