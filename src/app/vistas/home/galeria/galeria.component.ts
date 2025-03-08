@@ -10,7 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class GaleriaComponent {
   currentSlide = 0;
-  
+  touchStartX = 0;
+  touchEndX = 0;
   slides = [
     {
       image: 'img/home/carrusel/carrusel-01.jpg',
@@ -62,4 +63,25 @@ export class GaleriaComponent {
   onNextClick() {
     this.currentSlide = (this.currentSlide + 1) % this.slides.length;
   }
+
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.touches[0].clientX;
+  }
+
+  onTouchMove(event: TouchEvent) {
+    this.touchEndX = event.touches[0].clientX;
+  }
+
+  onTouchEnd() {
+    const swipeThreshold = 50; // Sensibilidad del swipe
+
+    if (this.touchStartX - this.touchEndX > swipeThreshold) {
+      // Swipe izquierda
+      this.onNextClick();
+    } else if (this.touchEndX - this.touchStartX > swipeThreshold) {
+      // Swipe derecha
+      this.onPrevClick();
+    }
+  }
+  
 }

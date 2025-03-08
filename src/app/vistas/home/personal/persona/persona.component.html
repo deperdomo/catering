@@ -1,11 +1,19 @@
-<div class="persona">
+<div class="mt-4 mb-10">
+    <!-- Contenedor de la imagen -->
     <div class="cont-img">
-        <img src="/img/home/profesionales/{{ foto }}" alt="{{ foto }}" />
+      <img src="/img/home/profesionales/{{ foto }}" alt="{{ foto }}" class="rounded-lg w-full" />
     </div>
-    <div class="cont-info">
-        <h3>{{ nombre }}</h3>
-        <h5>{{ cargo }}</h5>
-        <p>{{ descripcion }}</p>
-        
+  
+    <!-- Contenedor de la información -->
+    <div class="cont-info mt-5">
+      <h3 class="text-xl md:text-2xl font-semibold text-black">
+        {{ nombre }}
+      </h3>
+      <h5 class="text-base font-medium text-[#4F4F4F] mt-2 mb-3">
+        {{ cargo }}
+      </h5>
+      <p class="text-base font-normal text-[#4F4F4F]">
+        {{ descripcion }}
+      </p>
     </div>
-</div>
+  </div>

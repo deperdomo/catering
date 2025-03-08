@@ -1,25 +1,31 @@
-
 <div class="bg-[#f0f0f0]">
-  <div class="contenido max-w-7xl mx-auto">
-  <div class="left">
-    <app-section-title [title1]="'EXELENCIA CULINARIA'" [title2]="'Mejore sus eventos con nosotros'" />
-
-    <div class="text">
-      <p>
-        Daniela Catering se especializa en servicios de catering premium en Madrid, centrándose en bodas,
-        cumpleaños, cócteles y eventos exclusivos. Nos enorgullecemos de la alta gastronomía, ofreciendo
-        aperitivos gourmet y elegantes presentaciones que crean un ambiente sofisticado. Nuestra misión
-        es crear experiencias culinarias únicas con un estilo moderno y minimalista, asegurando que su
-        evento no sólo sea memorable sino extraordinario.
-      </p>
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center p-5">
+    <!-- Sección izquierda -->
+    <div class="md:w-3/5 w-full md:pl-[100px] lg:pl-[140px] mb-8 md:mb-0">
+      <app-section-title [title1]="'EXCELENCIA CULINARIA'" [title2]="'Mejore sus eventos con nosotros'" />
+      
+      <div class="mt-6">
+        <p class="text-justify text-[#4f4f4f] text-base md:text-lg max-w-[500px]">
+          Daniela Catering se especializa en servicios de catering premium en Madrid, centrándose en bodas,
+          cumpleaños, cócteles y eventos exclusivos. Nos enorgullecemos de la alta gastronomía, ofreciendo
+          aperitivos gourmet y elegantes presentaciones que crean un ambiente sofisticado. Nuestra misión
+          es crear experiencias culinarias únicas con un estilo moderno y minimalista, asegurando que su
+          evento no sólo sea memorable sino extraordinario.
+        </p>
+      </div>
+      
+      <button class="bg-[#f0f0f0] text-black border-2 border-black font-semibold py-3 px-6 rounded-lg 
+                    text-lg md:text-xl mt-8 hover:bg-[#450aba] hover:text-white hover:border-[#450aba] 
+                    transition-colors duration-300">
+        Contáctenos
+      </button>
     </div>
-    <button>Contáctenos</button>
-  </div>
-  <div class="right">
-    <div class="cont-imagen">
-      <img src="img/home/about.jpg" alt="">
+
+    <!-- Sección derecha -->
+    <div class="md:w-2/5 w-full">
+      <div class="md:m-[80px] md:mr-[20px] h-[450px] overflow-hidden rounded-[22px]">
+        <img src="img/home/about.jpg" alt="About" class="w-full h-full object-cover">
+      </div>
     </div>
   </div>
 </div>
-
-
