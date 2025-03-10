@@ -14,7 +14,7 @@
       <ul class="hidden md:flex space-x-6">
           <!-- Enlaces desktop -->
           @for (item of menuItems; track $index) {
-            <li class="mx-2 md:mx-6">
+            <li class="mx-1 md:mx-4">
               <a [routerLink]="[]" [fragment]="item.fragment" 
                  class="text-white text-base md:text-lg font-normal px-2 md:px-4 py-2 transition-all duration-300 relative hover:text-yellow-400 hover:-translate-y-0.5 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-white after:left-0 after:bottom-[-5px] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
                   {{ item.label }}
@@ -25,18 +25,24 @@
       
       <!-- Menú móvil corregido -->
       <div class="md:hidden w-full px-4">
-          <button (click)="toggleMobileMenu()" class="text-white w-full text-left py-3 flex justify-between items-center">
-              Menú
-              <svg class="w-6 h-6 transform transition-transform" [class.rotate-90]="showMobileMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-              </svg>
-          </button>
+        <button (click)="toggleMobileMenu()" class="text-white w-full text-left py-3 flex justify-between items-center">
+          Menú
+          <div class="menu-activador">
+            <input type="checkbox" id="lanzador" [checked]="isMenuOpen" (click)="toggleMobileMenu()" />
+            <label for="lanzador">
+              <span class="menu-activador-linea"></span>
+              <span class="menu-activador-linea"></span>
+              <span class="menu-activador-linea"></span>
+            </label>
+          </div>
+        </button>
+        
           @if (showMobileMenu) {
             <div class="flex-col space-y-4 mt-4 pb-4">
               @for (item of menuItems; track $index) {
                 <a [routerLink]="[]" [fragment]="item.fragment" 
                    (click)="scrollToSection(item.fragment)"
-                   class="text-white text-base px-4 py-2 hover:bg-[#6d2ae6] rounded-lg transition-colors block">
+                   class="text-white text-base px-4 py-2 hover:bg-[#6d2ae6] hover:text-yellow-400 rounded-lg transition-colors block">
                     {{ item.label }}
                 </a>
               }

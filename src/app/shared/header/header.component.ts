@@ -20,7 +20,6 @@ export class HeaderComponent {
     { fragment: 'servicios', label: 'Servicios' },
     { fragment: 'galeria', label: 'Galería' },
     { fragment: 'testimonios', label: 'Testimonios' },
-    { fragment: 'menu', label: 'Menú' },
     { fragment: 'contacto', label: 'Contacto' }
   ];
 
@@ -38,6 +37,7 @@ export class HeaderComponent {
 
   toggleMobileMenu() {
     this.showMobileMenu = !this.showMobileMenu;
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   @HostListener('window:resize', ['$event'])
@@ -66,5 +66,6 @@ export class HeaderComponent {
     }, 100);
   }
 
+  isMenuOpen: boolean = false;
 
 }

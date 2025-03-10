@@ -1,15 +1,14 @@
-<div class="bg-[#f0f0f0]">
-    <div class="max-w-7xl mx-auto px-6 md:px-24 py-12">
-      <app-section-title 
-        [title1]="'EXCELENCIA CULINARIA'" 
-        [title2]="'Mejore sus eventos con nosotros'" 
-      />
-  
-      <!-- Contenedor de personas -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mt-8 mx-12">
+<div class="bg-gray-100">
+  <div class="max-w-7xl mx-auto px-6 md:px-24 py-12">
+    <app-section-title 
+      [title1]="'EXCELENCIA CULINARIA'" 
+      [title2]="'Mejore sus eventos con nosotros'" 
+    />
+    
+    <div class="flex flex-col md:flex-row gap-6 mt-8 mx-12 justify-between">
         <!-- Persona 1 -->
         <app-persona 
-          [foto]="'henry.png'" 
+          [fotoUrl]="'/img/home/profesionales/henry.jpg'" 
           [nombre]="'Henry'" 
           [cargo]="'Chef Ejecutivo'" 
           [descripcion]="'Apasionado por la gastronomía, lidera la cocina con creatividad e innovación.'" 
@@ -18,7 +17,7 @@
         
         <!-- Persona 2 -->
         <app-persona 
-          [foto]="'daniela.png'" 
+          [fotoUrl]="'/img/home/profesionales/daniela.jpg'" 
           [nombre]="'Daniela'" 
           [cargo]="'Cocinera'" 
           [descripcion]="'Amante de los sabores auténticos, disfruta creando platos llenos de tradición y pasión.'" 
@@ -27,7 +26,7 @@
         
         <!-- Persona 3 -->
         <app-persona 
-          [foto]="'pablo.png'" 
+          [fotoUrl]="'/img/home/profesionales/pablo.jpg'" 
           [nombre]="'Pablo'" 
           [cargo]="'Coctelero Experto'" 
           [descripcion]="'Especialista en mixología, transforma ingredientes en experiencias únicas en cada copa.'" 

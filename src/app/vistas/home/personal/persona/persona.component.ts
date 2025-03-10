@@ -1,17 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-persona',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './persona.component.html',
-  styleUrl: './persona.component.css'
 })
 export class PersonaComponent {
-
-  @Input() foto!: string;
+  @Input() fotoUrl!: string;
   @Input() nombre!: string;
   @Input() cargo!: string;
   @Input() descripcion!: string;
+  
+  @ViewChild('descripcionElement') descripcionElement!: ElementRef<HTMLElement>;
 
+  mostrarTextoCompleto = false;
+  pointer = false;
 
+  toggleTexto() {
+    this.mostrarTextoCompleto = !this.mostrarTextoCompleto;
+  }
 }
