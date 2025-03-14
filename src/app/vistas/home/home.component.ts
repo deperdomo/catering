@@ -5,7 +5,7 @@ import { AboutComponent } from "./about/about.component";
 import { ServiciosComponent } from "./servicios/servicios.component";
 import { PersonalComponent } from './personal/personal.component';
 import { FormContactoComponent } from "./form-contacto/form-contacto.component";
-import { FooterComponent } from "./footer/footer.component";
+import { FooterComponent } from "../../shared/footer/footer.component";
 import { GaleriaComponent } from "./galeria/galeria.component";
 import { TestimoniosComponent } from './testimonios/testimonios.component';
 
