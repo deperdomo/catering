@@ -1,53 +1,53 @@
-<header class="bg-gradient-to-r from-[#270668] to-[#3a0a9c] text-white shadow-lg">
-  <div class="flex flex-col md:flex-row justify-between items-center h-auto md:h-[100px] bg-gradient-to-r from-[#270668] via-[#270668] to-transparent px-4 md:px-10 py-4">
-      <h1 class="libre font-bold text-2xl md:text-3xl bg-gradient-to-r from-white to-[#ffd700] bg-clip-text text-transparent mx-auto md:mx-0 md:ml-[90px]">Daniela Catering</h1>
-      <a href="mailto:danielacateringyeventos@gmail.com">
-        <div class="mt-4 md:mt-0 flex items-center border-2 border-white rounded-lg p-2 md:mr-[60px] transition-all duration-300 hover:border-[#450aba] hover:bg-[#450aba] cursor-pointer">
-          <span class="mr-2 hover:scale-125 transition-transform">📧</span>
-          <span class="text-sm md:text-base">danielacateringyeventos&#64;gmail.com</span>
-        </div>
-      </a>
-      
-  </div>
-  
-  <nav class="bg-gradient-to-r from-[#450aba] to-[#5d15e6] py-3 h-auto md:h-[70px] flex items-center justify-center shadow-md">
-      <ul class="hidden md:flex space-x-6">
-          <!-- Enlaces desktop -->
-          @for (item of menuItems; track $index) {
-            <li class="mx-1 md:mx-4">
-              <a [routerLink]="[]" [fragment]="item.fragment" 
-                 class="text-white text-base md:text-lg font-normal px-2 md:px-4 py-2 transition-all duration-300 relative hover:text-yellow-400 hover:-translate-y-0.5 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-white after:left-0 after:bottom-[-5px] after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100">
-                  {{ item.label }}
-              </a>
-            </li>
-          }
-      </ul>
-      
-      <!-- Menú móvil corregido -->
-      <div class="md:hidden w-full px-4">
-        <button (click)="toggleMobileMenu()" class="text-white w-full text-left py-3 flex justify-between items-center">
-          Menú
-          <div class="menu-activador">
-            <input type="checkbox" id="lanzador" [checked]="isMenuOpen" (click)="toggleMobileMenu()" />
-            <label for="lanzador">
-              <span class="menu-activador-linea"></span>
-              <span class="menu-activador-linea"></span>
-              <span class="menu-activador-linea"></span>
-            </label>
+<header class="header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
+  [class.scrolled]="isScrolled">
+  <div class="header-container">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="logo">
+        <h1 class="libre">Daniela Catering</h1>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        @for (item of menuItems; track $index) {
+        <a [routerLink]="[]" [fragment]="item.fragment" class="nav-link" (click)="scrollToSection(item.fragment)">
+          {{ item.label }}
+        </a>
+        }
+      </nav>
+
+      <!-- Contact Info y Mobile Menu Button -->
+      <div class="header-right">
+        <!-- Contact Info -->
+        <a href="mailto:danielacateringyeventos@gmail.com" class="hidden lg:flex items-center contact-button">
+          <span class="mr-2">📧</span>
+          <span class="text-sm">danielacateringyeventos&#64;gmail.com</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-button" (click)="toggleMobileMenu()">
+          <div class="hamburger" [class.active]="showMobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </button>
-        
-          @if (showMobileMenu) {
-            <div class="flex-col space-y-4 mt-4 pb-4">
-              @for (item of menuItems; track $index) {
-                <a [routerLink]="[]" [fragment]="item.fragment" 
-                   (click)="scrollToSection(item.fragment)"
-                   class="text-white text-base px-4 py-2 hover:bg-[#6d2ae6] hover:text-yellow-400 rounded-lg transition-colors block">
-                    {{ item.label }}
-                </a>
-              }
-            </div>
-          }
       </div>
-  </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.show]="showMobileMenu">
+      <nav class="mobile-nav">
+        @for (item of menuItems; track $index) {
+        <a [routerLink]="[]" [fragment]="item.fragment" class="mobile-nav-link"
+          (click)="scrollToSection(item.fragment)">
+          {{ item.label }}
+        </a>
+        }
+        <a href="mailto:danielacateringyeventos@gmail.com" class="mobile-nav-link contact-mobile">
+          📧 Contacto
+        </a>
+      </nav>
+    </div>
+  </div>
 </header>

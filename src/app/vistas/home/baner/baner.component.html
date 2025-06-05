@@ -1,20 +1,48 @@
-<div class="baner relative mt-[170px] bg-cover bg-center h-[500px] md:h-[800px] flex items-start justify-start p-5 text-white text-center font-bold">
-  
-  <!-- Capa de opacidad -->
-  <div class="absolute inset-0 bg-black bg-opacity-35 z-10"></div>
-  
-  <!-- Contenido -->
-  <div class="relative z-10 p-5 m-5 mt-[90px] md:mt-[160px] md:max-w-4xl rounded-lg text-left max-w-2xl">
-    <div class="text-xl md:text-2xl font-medium">
+<section class="banner" id="home">
+  <!-- Elementos flotantes animados -->
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+  </div>
+
+  <!-- Overlay con gradiente dinámico -->
+  <div class="banner-overlay"></div>
+
+  <!-- Contenido principal -->
+  <div class="banner-content">
+    <div class="banner-badge">
       ELEVA TU EVENTO
     </div>
-    
-    <h2 class="libre text-3xl md:text-4xl md:leading-[40px] lg:leading-[60px] lg:text-5xl mt-3 mb-5">
+
+    <h1 class="banner-title libre">
       Ofrecemos una experiencia culinaria completa
-    </h2>
-    
-    <button [routerLink]="[]" [fragment]="'servicios'" class="bg-[#450aba] text-white px-6 py-4 rounded-lg text-lg md:text-xl hover:bg-[#270568] transition-colors duration-300 mt-5 md:mt-16">
-      Ver nuestros servicios
-    </button>
+    </h1>
+
+    <p class="banner-description">
+      Transformamos cada ocasión en un momento extraordinario con nuestros servicios de catering premium.
+      Desde eventos íntimos hasta grandes celebraciones, creamos experiencias gastronómicas memorables.
+    </p>
+
+    <div class="cta-buttons">
+      <button [routerLink]="[]" [fragment]="'servicios'" class="btn-primary">
+        <span>Ver nuestros servicios</span>
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </button>
+
+      <button [routerLink]="[]" [fragment]="'contacto'" class="btn-secondary">
+        <span>Contactar ahora</span>
+      </button>
+    </div>
   </div>
-</div>
+
+  <!-- Indicador de scroll -->
+  <div class="scroll-indicator">
+    <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+    <span class="text-sm mt-2">Desliza para explorar</span>
+  </div>
+</section>

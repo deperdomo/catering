@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollToPlugin);
 })
 export class HeaderComponent {
   showMobileMenu = false;
+  isScrolled = false;
   menuItems = [
     { fragment: 'home', label: 'Home' },
     { fragment: 'acerca-de', label: 'Acerca de' },
@@ -34,15 +35,17 @@ export class HeaderComponent {
       }
     });
   }
-
   toggleMobileMenu() {
     this.showMobileMenu = !this.showMobileMenu;
-    this.isMenuOpen = !this.isMenuOpen;
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    this.isScrolled = window.scrollY > 50;
+  }
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    if (window.innerWidth >= 768) { // 768px = breakpoint md de Tailwind
+    if (window.innerWidth >= 1024) {
       this.showMobileMenu = false;
     }
   }
@@ -51,21 +54,18 @@ export class HeaderComponent {
     setTimeout(() => {
       const section = document.getElementById(id);
       if (section) {
-        const offset = 150;
+        const offset = 100;
         const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
-        
+
         gsap.to(window, {
           scrollTo: sectionPosition,
-          duration: 1.5,
+          duration: 1.2,
           ease: 'power2.out',
           onComplete: () => {
-            this.showMobileMenu = false; // Cierra el menú después del scroll
+            this.showMobileMenu = false;
           }
         });
       }
     }, 100);
   }
-
-  isMenuOpen: boolean = false;
-
 }
