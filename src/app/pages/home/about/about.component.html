@@ -1,0 +1,42 @@
+<section class="about-section">
+  <div class="about-overlay"></div>
+  <div class="about-container">    <!-- Sección izquierda -->
+    <div class="about-content" appScrollAnimation="fadeInLeft" [delay]="200">
+      <div class="about-badge" appScrollAnimation="scaleIn" [delay]="100">
+        <span>EXCELENCIA CULINARIA</span>
+      </div>
+      
+      <div appScrollAnimation="fadeInUp" [delay]="300">
+        <app-section-title [title1]="'EXCELENCIA CULINARIA'" [title2]="'Mejore sus eventos con nosotros'" />
+      </div>
+      
+      <div class="about-text" appScrollAnimation="fadeInUp" [delay]="500">
+        <p class="about-description">
+          Daniela Catering se especializa en servicios de catering premium en Madrid, centrándose en bodas,
+          cumpleaños, cócteles y eventos exclusivos. Nos enorgullecemos de la alta gastronomía, ofreciendo
+          aperitivos gourmet y elegantes presentaciones que crean un ambiente sofisticado.
+        </p>
+        <p class="about-mission">
+          Nuestra misión es crear experiencias culinarias únicas con un estilo moderno y minimalista, 
+          asegurando que su evento no sólo sea memorable sino extraordinario.
+        </p>
+      </div>
+      
+      <button [routerLink]="[]" [fragment]="'contacto'" class="about-cta-btn" 
+              appScrollAnimation="bounceIn" [delay]="700">
+        <span>Contáctenos</span>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Sección derecha -->
+    <div class="about-image-container" appScrollAnimation="fadeInRight" [delay]="400">
+      <div class="about-image-frame">
+        <img src="img/home/about.jpg" alt="Daniela Catering - Excelencia Culinaria" class="about-image">
+        <div class="image-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>

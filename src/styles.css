@@ -8,3 +8,316 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* ==========================================
+   SCROLL ANIMATIONS - Sistema optimizado de animaciones en viewport
+   ========================================== */
+
+/* Estados base para animaciones - Optimizado para performance */
+.scroll-animation-hidden {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.scroll-animation-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================
+   FADE ANIMATIONS - Optimizadas con GPU acceleration
+   ========================================== */
+
+/* Fade In Up */
+.animation-fadeInUp.scroll-animation-hidden {
+  transform: translate3d(0, 60px, 0);
+}
+
+.animation-fadeInUp.scroll-animation-visible {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Fade In Down */
+.animation-fadeInDown.scroll-animation-hidden {
+  transform: translate3d(0, -60px, 0);
+}
+
+.animation-fadeInDown.scroll-animation-visible {
+  animation: fadeInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Fade In Left */
+.animation-fadeInLeft.scroll-animation-hidden {
+  transform: translate3d(-60px, 0, 0);
+}
+
+.animation-fadeInLeft.scroll-animation-visible {
+  animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-60px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Fade In Right */
+.animation-fadeInRight.scroll-animation-hidden {
+  transform: translate3d(60px, 0, 0);
+}
+
+.animation-fadeInRight.scroll-animation-visible {
+  animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(60px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ==========================================
+   SCALE ANIMATIONS
+   ========================================== */
+
+/* Scale In */
+.animation-scaleIn.scroll-animation-hidden {
+  transform: scale(0.8);
+}
+
+.animation-scaleIn.scroll-animation-visible {
+  animation: scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Zoom In Up */
+.animation-zoomInUp.scroll-animation-hidden {
+  transform: scale(0.9) translateY(40px);
+}
+
+.animation-zoomInUp.scroll-animation-visible {
+  animation: zoomInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes zoomInUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================
+   FLIP ANIMATIONS
+   ========================================== */
+
+/* Flip In X */
+.animation-flipInX.scroll-animation-hidden {
+  transform: perspective(400px) rotateX(-90deg);
+}
+
+.animation-flipInX.scroll-animation-visible {
+  animation: flipInX 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes flipInX {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateX(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0deg);
+  }
+}
+
+/* ==========================================
+   SLIDE ANIMATIONS
+   ========================================== */
+
+/* Slide In Up */
+.animation-slideInUp.scroll-animation-hidden {
+  transform: translateY(100%);
+}
+
+.animation-slideInUp.scroll-animation-visible {
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   SPECIAL ANIMATIONS
+   ========================================== */
+
+/* Bounce In */
+.animation-bounceIn.scroll-animation-hidden {
+  transform: scale(0.3);
+}
+
+.animation-bounceIn.scroll-animation-visible {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Rotate In */
+.animation-rotateIn.scroll-animation-hidden {
+  transform: rotate(-200deg);
+}
+
+.animation-rotateIn.scroll-animation-visible {
+  animation: rotateIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+/* ==========================================
+   STAGGER ANIMATIONS (para elementos en secuencia)
+   ========================================== */
+
+.stagger-1 { animation-delay: 0.1s !important; }
+.stagger-2 { animation-delay: 0.2s !important; }
+.stagger-3 { animation-delay: 0.3s !important; }
+.stagger-4 { animation-delay: 0.4s !important; }
+.stagger-5 { animation-delay: 0.5s !important; }
+.stagger-6 { animation-delay: 0.6s !important; }
+
+/* ==========================================
+   RESPONSIVE ANIMATIONS
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animation-hidden,
+  .scroll-animation-visible {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* Optimizaciones de performance */
+.scroll-animation-hidden,
+.scroll-animation-visible {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ==========================================
+   SMOOTH SCROLL BEHAVIOR - Solo controlado via JavaScript
+   ========================================== */
+
+/* Removido scroll-behavior: smooth global para evitar scrolls automáticos no deseados */
+
+/* Mejoras para la transición entre elementos */
+*:not(.scroll-animation-hidden):not(.scroll-animation-visible) {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ==========================================
+   LOADING STATES Y SKELETON ANIMATIONS
+   ========================================== */
+
+.content-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(240, 240, 240, 0.3) 25%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(240, 240, 240, 0.3) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

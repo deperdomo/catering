@@ -1,15 +1,25 @@
-<div class="bg-[#e0dfe1]">
-  <div class="max-w-7xl mx-auto px-6 md:px-24 py-8">
-    <app-section-title 
-      [title1]="'SERVICIOS QUE OFRECEMOS'" 
-      [title2]="'Eleve la categoría de sus eventos con un catering gourmet'" 
-    />
-
-    <!-- Contenedor de servicios -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 mb-12">
+<section class="services-section">
+  <div class="services-overlay"></div>
+  
+  <div class="services-container">
+    <div class="services-header">
+      <div class="services-badge" appScrollAnimation="fadeInDown" [delay]="100">
+        <span>SERVICIOS PREMIUM</span>
+      </div>
+      
+      <div appScrollAnimation="fadeInUp" [delay]="200">
+        <app-section-title 
+          [title1]="'SERVICIOS QUE OFRECEMOS'" 
+          [title2]="'Eleve la categoría de sus eventos con un catering gourmet'" 
+        />
+      </div>
+    </div>    <!-- Grid de servicios -->
+    <div class="services-grid">
       <!-- Servicio 1 -->
       <app-servicio 
-        class="w-full"
+        class="service-card"
+        appScrollAnimation="fadeInLeft" 
+        [delay]="100"
         [imagen]="'img/home/eventos/catering-bodas.jpg'"
         [titulo]="'Catering de bodas'"
         [descripcion]="'Haga de su boda un evento único con nuestro catering gourmet, menús personalizados y presentaciones elegantes.'">
@@ -17,7 +27,9 @@
 
       <!-- Servicio 2 -->
       <app-servicio 
-        class="w-full"
+        class="service-card"
+        appScrollAnimation="fadeInRight" 
+        [delay]="200"
         [imagen]="'img/home/eventos/catering-cumpleanos.jpg'"
         [titulo]="'Celebraciones de cumpleaños'"
         [descripcion]="'Celebre su cumpleaños con un catering delicioso y variado, diseñado para sorprender a sus invitados.'">
@@ -25,7 +37,9 @@
 
       <!-- Servicio 3 -->
       <app-servicio 
-        class="w-full"
+        class="service-card"
+        appScrollAnimation="fadeInLeft" 
+        [delay]="300"
         [imagen]="'img/home/eventos/catering-empresarial.jpg'"
         [titulo]="'Catering empresarial'"
         [descripcion]="'Ofrecemos un catering profesional y sofisticado para reuniones, conferencias y eventos corporativos de alto nivel.'">
@@ -33,11 +47,13 @@
 
       <!-- Servicio 4 -->
       <app-servicio 
-        class="w-full"
+        class="service-card"
+        appScrollAnimation="fadeInRight" 
+        [delay]="400"
         [imagen]="'img/home/eventos/catering-exclusivos.jpg'"
         [titulo]="'Eventos exclusivos'"
         [descripcion]="'Brinde una experiencia gastronómica inigualable con nuestro catering de lujo para eventos exclusivos y sofisticados.'">
       </app-servicio>
     </div>
   </div>
-</div>
+</section>

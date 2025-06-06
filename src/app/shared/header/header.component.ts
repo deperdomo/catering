@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollToPlugin);
 export class HeaderComponent {
   showMobileMenu = false;
   isScrolled = false;
+  private allowAutoScroll = false; // Control para scroll automático
+
   menuItems = [
     { fragment: 'home', label: 'Home' },
     { fragment: 'acerca-de', label: 'Acerca de' },
@@ -25,15 +27,8 @@ export class HeaderComponent {
   ];
 
   constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        const fragment = this.router.url.split('#')[1];
-        if (fragment) {
-          this.scrollToSection(fragment);
-          this.showMobileMenu = false; // Cierra el menú móvil al navegar
-        }
-      }
-    });
+    // Removido el scroll automático en NavigationEnd
+    // El scroll solo ocurrirá cuando se haga clic explícitamente en un enlace del menú
   }
   toggleMobileMenu() {
     this.showMobileMenu = !this.showMobileMenu;
@@ -49,23 +44,21 @@ export class HeaderComponent {
       this.showMobileMenu = false;
     }
   }
-
   scrollToSection(id: string) {
-    setTimeout(() => {
-      const section = document.getElementById(id);
-      if (section) {
-        const offset = 100;
-        const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
+    // Solo hacer scroll cuando se llama explícitamente desde un clic
+    const section = document.getElementById(id);
+    if (section) {
+      const offset = 100;
+      const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
 
-        gsap.to(window, {
-          scrollTo: sectionPosition,
-          duration: 1.2,
-          ease: 'power2.out',
-          onComplete: () => {
-            this.showMobileMenu = false;
-          }
-        });
-      }
-    }, 100);
+      gsap.to(window, {
+        scrollTo: sectionPosition,
+        duration: 1.2,
+        ease: 'power2.out',
+        onComplete: () => {
+          this.showMobileMenu = false;
+        }
+      });
+    }
   }
 }

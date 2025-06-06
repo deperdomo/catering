@@ -5,12 +5,10 @@
       <!-- Logo -->
       <div class="logo">
         <h1 class="libre">Daniela Catering</h1>
-      </div>
-
-      <!-- Desktop Navigation -->
+      </div>      <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         @for (item of menuItems; track $index) {
-        <a [routerLink]="[]" [fragment]="item.fragment" class="nav-link" (click)="scrollToSection(item.fragment)">
+        <a href="javascript:void(0)" class="nav-link" (click)="scrollToSection(item.fragment)">
           {{ item.label }}
         </a>
         }
@@ -36,10 +34,9 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" [class.show]="showMobileMenu">
-      <nav class="mobile-nav">
+    <div class="mobile-menu" [class.show]="showMobileMenu">      <nav class="mobile-nav">
         @for (item of menuItems; track $index) {
-        <a [routerLink]="[]" [fragment]="item.fragment" class="mobile-nav-link"
+        <a href="javascript:void(0)" class="mobile-nav-link"
           (click)="scrollToSection(item.fragment)">
           {{ item.label }}
         </a>
