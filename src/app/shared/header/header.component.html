@@ -12,17 +12,8 @@
           {{ item.label }}
         </a>
         }
-      </nav>
-
-      <!-- Contact Info y Mobile Menu Button -->
+      </nav>      <!-- Mobile Menu Button -->
       <div class="header-right">
-        <!-- Contact Info -->
-        <a href="mailto:danielacateringyeventos@gmail.com" class="hidden lg:flex items-center contact-button">
-          <span class="mr-2">📧</span>
-          <span class="text-sm">danielacateringyeventos&#64;gmail.com</span>
-        </a>
-
-        <!-- Mobile Menu Button -->
         <button class="mobile-menu-button" (click)="toggleMobileMenu()">
           <div class="hamburger" [class.active]="showMobileMenu">
             <span></span>
@@ -31,19 +22,15 @@
           </div>
         </button>
       </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" [class.show]="showMobileMenu">      <nav class="mobile-nav">
+    </div>    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.show]="showMobileMenu">
+      <nav class="mobile-nav">
         @for (item of menuItems; track $index) {
         <a href="javascript:void(0)" class="mobile-nav-link"
           (click)="scrollToSection(item.fragment)">
           {{ item.label }}
         </a>
         }
-        <a href="mailto:danielacateringyeventos@gmail.com" class="mobile-nav-link contact-mobile">
-          📧 Contacto
-        </a>
       </nav>
     </div>
   </div>

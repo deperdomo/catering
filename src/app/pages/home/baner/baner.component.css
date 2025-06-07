@@ -29,7 +29,6 @@
 }
 
 @keyframes overlayFloat {
-
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -277,6 +276,8 @@
   text-align: center;
   opacity: 0.8;
   animation: fadeIn 2s ease-out 2s both;
+  z-index: 15; /* Aumentar z-index para asegurar que esté sobre otros elementos */
+  pointer-events: none; /* Evitar interferencia con clics */
 }
 
 .scroll-indicator svg {
@@ -285,7 +286,6 @@
 }
 
 @keyframes bounce {
-
   0%,
   20%,
   50%,
@@ -304,14 +304,25 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .banner {
+    /* Agregar padding-top para tablets */
+    padding-top: 90px;
+  }
+}
+
 @media (max-width: 768px) {
   .banner {
     background-attachment: scroll;
     padding: 1rem;
+    /* Agregar padding-top para compensar el header fijo */
+    padding-top: 100px;
   }
 
   .banner-content {
     padding: 1rem;
+    /* Asegurar que el contenido no se superponga con el header */
+    margin-top: 20px;
   }
 
   .banner-description {
@@ -322,6 +333,8 @@
   .cta-buttons {
     flex-direction: column;
     width: 100%;
+    /* Agregar margin-bottom para dar espacio al scroll-indicator */
+    margin-bottom: 4rem;
   }
 
   .btn-primary,
@@ -334,22 +347,46 @@
   .floating-element {
     display: none;
   }
+
+  /* Ajustar el scroll indicator para mobile */
+  .scroll-indicator {
+    bottom: 1rem;
+    z-index: 5;
+  }
 }
 
 @media (max-width: 480px) {
+  .banner {
+    /* Aumentar el padding-top para pantallas muy pequeñas */
+    padding-top: 110px;
+  }
+
   .banner-badge {
     font-size: 0.75rem;
     padding: 0.5rem 1.5rem;
+    /* Asegurar que el badge tenga suficiente margen superior */
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .banner-description {
     font-size: 0.9rem;
   }
-}
 
-/* Performance optimizations */
-.banner * {
-  will-change: transform;
+  .cta-buttons {
+    /* Más espacio para el scroll indicator en pantallas pequeñas */
+    margin-bottom: 5rem;
+  }
+
+  .scroll-indicator {
+    bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .scroll-indicator svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Soporte para movimiento reducido */
