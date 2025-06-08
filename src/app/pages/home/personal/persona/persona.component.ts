@@ -5,8 +5,9 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } fro
   selector: 'app-persona',
   imports: [CommonModule],
   templateUrl: './persona.component.html',
+  styleUrl: './persona.component.css'
 })
-export class PersonaComponent {
+export class PersonaComponent implements AfterViewInit {
   @Input() fotoUrl!: string;
   @Input() nombre!: string;
   @Input() cargo!: string;
@@ -16,8 +17,23 @@ export class PersonaComponent {
 
   mostrarTextoCompleto = false;
   pointer = false;
+  needsExpansion = false;
+
+  ngAfterViewInit() {
+    // Verificar si el texto necesita expansión
+    this.checkTextOverflow();
+  }
+
+  private checkTextOverflow() {
+    if (this.descripcionElement?.nativeElement) {
+      const element = this.descripcionElement.nativeElement;
+      this.needsExpansion = element.scrollHeight > element.clientHeight;
+    }
+  }
 
   toggleTexto() {
-    this.mostrarTextoCompleto = !this.mostrarTextoCompleto;
+    if (this.needsExpansion) {
+      this.mostrarTextoCompleto = !this.mostrarTextoCompleto;
+    }
   }
 }

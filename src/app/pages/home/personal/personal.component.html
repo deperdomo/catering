@@ -1,37 +1,41 @@
-<div class="bg-gray-100">
-  <div class="max-w-7xl mx-auto px-6 md:px-24 py-12">
+<section class="personal-section">
+  <!-- Elementos flotantes decorativos -->
+  <div class="floating-shapes">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <div class="personal-container">
     <app-section-title 
       [title1]="'EXCELENCIA CULINARIA'" 
       [title2]="'Mejore sus eventos con nosotros'" 
     />
     
-    <div class="flex flex-col md:flex-row gap-6 mt-8 mx-12 justify-between">
-        <!-- Persona 1 -->
-        <app-persona 
-          [fotoUrl]="'img/home/profesionales/henry.jpg'" 
-          [nombre]="'Henry'" 
-          [cargo]="'Chef Ejecutivo'" 
-          [descripcion]="'Apasionado por la gastronomía, lidera la cocina con creatividad e innovación.'" 
-          class="w-full md:w-[31%]"
-        />
-        
-        <!-- Persona 2 -->
-        <app-persona 
-          [fotoUrl]="'img/home/profesionales/daniela.jpg'" 
-          [nombre]="'Daniela'" 
-          [cargo]="'Cocinera'" 
-          [descripcion]="'Amante de los sabores auténticos, disfruta creando platos llenos de tradición y pasión.'" 
-          class="w-full md:w-[31%]"
-        />
-        
-        <!-- Persona 3 -->
-        <app-persona 
-          [fotoUrl]="'img/home/profesionales/pablo.jpg'" 
-          [nombre]="'Pablo'" 
-          [cargo]="'Coctelero Experto'" 
-          [descripcion]="'Especialista en mixología, transforma ingredientes en experiencias únicas en cada copa.'" 
-          class="w-full md:w-[31%]"
-        />
-      </div>
+    <div class="team-grid">
+      <!-- Persona 1 -->
+      <app-persona 
+        [fotoUrl]="'img/home/profesionales/henry.jpg'" 
+        [nombre]="'Henry'" 
+        [cargo]="'Chef Ejecutivo'" 
+        [descripcion]="'Apasionado por la gastronomía, lidera la cocina con creatividad e innovación.'" 
+      />
+      
+      <!-- Persona 2 -->
+      <app-persona 
+        [fotoUrl]="'img/home/profesionales/daniela.jpg'" 
+        [nombre]="'Daniela'" 
+        [cargo]="'Cocinera'" 
+        [descripcion]="'Amante de los sabores auténticos, disfruta creando platos llenos de tradición y pasión.'" 
+      />
+      
+      <!-- Persona 3 -->
+      <app-persona 
+        [fotoUrl]="'img/home/profesionales/pablo.jpg'" 
+        [nombre]="'Pablo'" 
+        [cargo]="'Coctelero Experto'" 
+        [descripcion]="'Especialista en mixología, transforma ingredientes en experiencias únicas en cada copa.'" 
+      />
     </div>
   </div>
+</section>

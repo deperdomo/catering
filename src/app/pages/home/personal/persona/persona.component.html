@@ -1,25 +1,24 @@
-<div class="mb-10 h-full">
-  <div class="h-full flex flex-col">
-    <img [src]="fotoUrl" [alt]="nombre" 
-         class="rounded-lg w-full aspect-square object-cover">
-    
-    <div class="mt-5 flex-1 flex flex-col">
-      <h3 class="text-xl md:text-2xl font-semibold text-black">{{ nombre }}</h3>
-      <h5 class="text-base font-medium text-gray-600 mt-2 mb-3">{{ cargo }}</h5>
-      
-      
-        <div class="relative flex-1 min-h-[110px]">
-          <div #descripcionElement
-            (click)="toggleTexto()"
-               [class.line-clamp-4]="!mostrarTextoCompleto && !pointer"
-               class="text-base font-normal text-gray-600 pr-4 transition-all duration-300 cursor-pointer">
-            {{ descripcion }}
-            
-          </div>
-        </div>
-      
-        
-      
-   
+<article class="person-card">
+  <!-- Contenedor de imagen -->
+  <div class="image-container">
+    <img [src]="fotoUrl" [alt]="nombre" class="person-image">
+    <div class="image-overlay"></div>
   </div>
-</div>
+  
+  <!-- Contenido de la tarjeta -->
+  <div class="card-content">
+    <h3 class="person-name">{{ nombre }}</h3>
+    <h4 class="person-role">{{ cargo }}</h4>
+      <div class="description-container">
+      <p #descripcionElement
+         (click)="toggleTexto()"
+         [class.line-clamp-4]="!mostrarTextoCompleto && needsExpansion"
+         class="person-description">
+        {{ descripcion }}
+      </p>
+      <span *ngIf="needsExpansion && !mostrarTextoCompleto" class="expand-indicator">
+        Leer más...
+      </span>
+    </div>
+  </div>
+</article>
