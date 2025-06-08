@@ -78,18 +78,13 @@
   animation-delay: 10s;
 }
 
+/* Animación simplificada para mejor performance */
 @keyframes floatGently {
   0%, 100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px) rotate(90deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px) translateX(-15px) rotate(180deg);
-  }
-  75% {
-    transform: translateY(15px) translateX(5px) rotate(270deg);
+    transform: translateY(-20px);
   }
 }
 
@@ -121,14 +116,27 @@
   }
 }
 
-/* Mejoras de rendimiento */
-.personal-section * {
+/* Mejoras de rendimiento - Solo aplicar will-change durante hover */
+.floating-shape:hover {
   will-change: transform;
+}
+
+/* Pausar animaciones durante scroll para mejor performance */
+.personal-section.scrolling .floating-shape {
+  animation-play-state: paused;
 }
 
 /* Soporte para movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   .floating-shape {
+    animation: none !important;
+  }
+}
+
+/* Optimización para dispositivos móviles - deshabilitar animaciones complejas */
+@media (max-width: 768px) {
+  .floating-shape {
     animation: none;
+    opacity: 0.3;
   }
 }

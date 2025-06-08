@@ -60,7 +60,6 @@ export class ScrollAnimationDirective implements OnInit, AfterViewInit, OnDestro
       this.intersectionService.unobserve(this.el);
     }
   }
-
   private setInitialState() {
     this.renderer.addClass(this.el.nativeElement, 'scroll-animation-hidden');
     this.renderer.addClass(this.el.nativeElement, `animation-${this.animationType}`);
@@ -70,8 +69,7 @@ export class ScrollAnimationDirective implements OnInit, AfterViewInit, OnDestro
       this.renderer.setStyle(this.el.nativeElement, 'animation-duration', `${this.duration}ms`);
     }
 
-    // Add will-change for better performance
-    this.renderer.setStyle(this.el.nativeElement, 'will-change', 'transform, opacity');
+    // Only add will-change when animation is about to start (performance optimization)
   }
 
   private startObserving() {
@@ -87,8 +85,10 @@ export class ScrollAnimationDirective implements OnInit, AfterViewInit, OnDestro
         }
       });
   }
-
   private animateIn() {
+    // Add will-change just before animation starts
+    this.renderer.setStyle(this.el.nativeElement, 'will-change', 'transform, opacity');
+    
     if (this.delay > 0) {
       setTimeout(() => this.showElement(), this.delay);
     } else {

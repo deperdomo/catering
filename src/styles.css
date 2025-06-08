@@ -17,7 +17,6 @@
 .scroll-animation-hidden {
   opacity: 0;
   visibility: hidden;
-  will-change: transform, opacity;
   backface-visibility: hidden;
   perspective: 1000px;
 }
@@ -279,12 +278,15 @@
   }
 }
 
-/* Optimizaciones de performance */
-.scroll-animation-hidden,
-.scroll-animation-visible {
+/* Optimizaciones de performance - Solo aplicar will-change cuando sea necesario */
+.scroll-animation-hidden.will-change-animation,
+.scroll-animation-visible.will-change-animation {
   will-change: transform, opacity;
-  backface-visibility: hidden;
-  perspective: 1000px;
+}
+
+/* Cleanup después de animaciones */
+.scroll-animation-visible.animation-complete {
+  will-change: auto;
 }
 
 /* ==========================================
@@ -319,5 +321,55 @@
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS FOR SCROLL
+   ========================================== */
+
+/* Disable heavy animations during scroll for better performance */
+.scrolling .floating-element,
+.scrolling .floating-shape,
+.scrolling .banner-overlay,
+.scrolling .about-overlay,
+.scrolling .services-overlay {
+  animation-play-state: paused !important;
+}
+
+/* Reduce motion for low-performance devices */
+@media (max-device-width: 768px) and (max-device-height: 1024px) {
+  .floating-element,
+  .floating-shape,
+  .banner-overlay,
+  .about-overlay,
+  .services-overlay {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+  
+  /* Simplify animations on mobile */
+  .banner-title {
+    animation: fadeIn 1.5s ease-out 0.6s both !important;
+  }
+}
+
+/* Optimize for older browsers */
+@supports not (backdrop-filter: blur(10px)) {
+  .floating-element,
+  .floating-shape,
+  .banner-overlay,
+  .about-overlay,
+  .services-overlay {
+    animation: none !important;
+  }
+}
+
+/* Battery level optimization */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01s !important;
   }
 }

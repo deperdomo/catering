@@ -7,7 +7,7 @@
   padding: 4rem 0;
 }
 
-/* Overlay con efectos dinámicos */
+/* Overlay con efectos dinámicos - Optimizado para performance */
 .services-overlay {
   position: absolute;
   top: 0;
@@ -18,21 +18,23 @@
     radial-gradient(circle at 30% 70%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 70% 30%, rgba(69, 10, 186, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 90% 90%, rgba(255, 215, 0, 0.06) 0%, transparent 50%);
-  animation: servicesOverlayFloat 15s ease-in-out infinite;
+}
+
+/* Solo animar en desktop para mejor performance */
+@media (min-width: 769px) {
+  .services-overlay {
+    animation: servicesOverlayFloat 15s ease-in-out infinite;
+  }
 }
 
 @keyframes servicesOverlayFloat {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
     opacity: 0.7;
   }
-  33% {
-    transform: translateY(-15px) rotate(1deg);
+  50% {
+    transform: translateY(-10px);
     opacity: 0.9;
-  }
-  66% {
-    transform: translateY(10px) rotate(-1deg);
-    opacity: 0.8;
   }
 }
 
@@ -85,15 +87,15 @@
   gap: 2rem;
 }
 
-/* Efectos hover para las tarjetas de servicio */
+/* Efectos hover para las tarjetas de servicio - Optimizado */
 .service-card {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
 }
 
 .service-card:hover {
   transform: translateY(-15px) scale(1.02);
   z-index: 20;
+  will-change: transform; /* Solo aplicar durante hover */
 }
 
 /* Keyframes generales */

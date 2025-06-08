@@ -15,20 +15,22 @@ export class IntersectionObserverService implements OnDestroy {
       this.createObserver();
     }
   }
-
   private createObserver() {
     const options: IntersectionObserverInit = {
       root: null,
-      rootMargin: '0px 0px -5% 0px', // Optimized trigger point
-      threshold: [0, 0.1, 0.25] // Multiple thresholds for better performance
+      rootMargin: '0px 0px -10% 0px', // More conservative trigger point for better performance
+      threshold: [0.1] // Single threshold for better performance
     };
 
     this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const subject = this.observedElements.get(entry.target);
-        if (subject) {
-          subject.next(entry.isIntersecting);
-        }
+      // Process entries in batches for better performance
+      requestAnimationFrame(() => {
+        entries.forEach(entry => {
+          const subject = this.observedElements.get(entry.target);
+          if (subject) {
+            subject.next(entry.isIntersecting);
+          }
+        });
       });
     }, options);
   }

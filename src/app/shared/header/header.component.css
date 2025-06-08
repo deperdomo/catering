@@ -336,8 +336,10 @@
   }
 }
 
-/* Performance optimizations */
-.header * {
+/* Performance optimizations - Solo aplicar will-change durante interacciones */
+.nav-link:hover,
+.mobile-menu-button:hover,
+.mobile-nav-link:hover {
   will-change: transform;
 }
 
