@@ -1,0 +1,17 @@
+{
+  "schedule": "weekly",
+  "ignoredFiles": [
+    "*.ico",
+    "*.svg",
+    "src/assets/icons/*"
+  ],
+  "compressWiki": true,
+  "minKBReduced": 10,
+  "aggressiveCompression": false,
+  "prTitle": "[ImgBot] Optimizar imágenes",
+  "prBody": "Beep boop. Tu ImageOptimBot ha optimizado estas imágenes automaticamente. 🤖 \n\n [más información](https://github.com/ImgBotApp/ImgBot)",
+  "includePaths": [
+    "public/img/**/*",
+    "src/assets/**/*"
+  ]
+}
