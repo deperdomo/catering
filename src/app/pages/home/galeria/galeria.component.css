@@ -3,3 +3,29 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }
+
+/* Custom carousel utility classes */
+.carousel-container {
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track {
+  will-change: transform;
+}
+
+.carousel-slide-inner {
+  transition: transform 0.7s ease-out, box-shadow 0.5s ease;
+}
+
+.carousel-control {
+  backdrop-filter: blur(8px);
+}
+
+.carousel-indicator {
+  opacity: 0.7;
+}
+.carousel-indicator:hover {
+  opacity: 1;
+}
