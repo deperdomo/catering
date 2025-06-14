@@ -1,0 +1,41 @@
+
+/* Estilos personalizados para Form Contacto */
+.form-container {
+  transition: box-shadow 0.5s ease;
+  background-clip: padding-box;
+}
+.form-container:hover {
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+.form-group {
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.form-group:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a0aec0;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+  opacity: 0;
+}
+
+.submit-btn {
+  background-size: 200% auto;
+  transition: transform 0.3s ease, background-position 0.5s ease;
+}
+.submit-btn:hover {
+  background-position: right center;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+.submit-btn:active {
+  transform: scale(0.95);
+}
