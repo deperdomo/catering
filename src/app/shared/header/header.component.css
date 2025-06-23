@@ -295,6 +295,22 @@
   animation-delay: 0.4s;
 }
 
+/* CTA Button */
+.cta-button {
+  background: linear-gradient(90deg, #ff6b6b, #ffd700);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 1023px) {
   .header-content {
