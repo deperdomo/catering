@@ -1,0 +1,67 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="80" height="70" viewBox="0 0 80 70">
+  <ns0:defs>
+    <ns0:linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <ns0:stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <ns0:stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </ns0:linearGradient>
+    <ns0:linearGradient id="silverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <ns0:stop offset="0%" style="stop-color:#E8E8E8;stop-opacity:1" />
+      <ns0:stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </ns0:linearGradient>
+    <ns0:filter id="subtleShadow">
+      <ns0:feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.2" />
+    </ns0:filter>
+  </ns0:defs>
+  
+  
+  <ns0:g transform="translate(8.0,7.0) scale(0.8)"><ns0:circle cx="40" cy="42" r="26" fill="url(#silverGradient)" stroke="url(#goldGradient)" stroke-width="3.0" filter="url(#subtleShadow)" />
+  
+  
+  <ns0:circle cx="40" cy="42" r="22" fill="none" stroke="url(#goldGradient)" stroke-width="1.0499999999999998" opacity="0.95" />
+  
+  
+  <ns0:g transform="translate(15, 25)">
+    
+    <ns0:rect x="1" y="12" width="2.5" height="18" fill="url(#silverGradient)" rx="1" filter="url(#subtleShadow)" />
+    
+    <ns0:rect x="0.5" y="8" width="0.8" height="6" fill="url(#silverGradient)" rx="0.3" />
+    <ns0:rect x="1.8" y="8" width="0.8" height="6" fill="url(#silverGradient)" rx="0.3" />
+    <ns0:rect x="3.1" y="8" width="0.8" height="6" fill="url(#silverGradient)" rx="0.3" />
+    <ns0:rect x="4.4" y="8" width="0.8" height="6" fill="url(#silverGradient)" rx="0.3" />
+    
+    <ns0:ellipse cx="2.25" cy="9" rx="2.5" ry="1.5" fill="url(#silverGradient)" />
+  </ns0:g>
+  
+  
+  <ns0:g transform="translate(58, 25)">
+    
+    <ns0:rect x="1" y="12" width="2.5" height="18" fill="url(#silverGradient)" rx="1" filter="url(#subtleShadow)" />
+    
+    <ns0:path d="M2.25 8 L2.25 12 L0.5 10 L0.8 8.5 Z" fill="url(#silverGradient)" filter="url(#subtleShadow)" />
+    <ns0:rect x="1.8" y="8" width="1" height="4" fill="url(#silverGradient)" rx="0.2" />
+  </ns0:g>
+  
+  
+  <ns0:text x="28" y="48" font-family="serif" font-size="20" font-weight="700" fill="url(#goldGradient)" filter="url(#subtleShadow)">D</ns0:text>
+  
+  
+  <ns0:text x="46" y="48" font-family="serif" font-size="20" font-weight="700" fill="url(#goldGradient)" filter="url(#subtleShadow)">C</ns0:text>
+  
+  
+  <ns0:g transform="translate(40, 38)">
+    
+    <ns0:circle cx="0" cy="0" r="2.5" fill="url(#goldGradient)" opacity="0.8" />
+    
+    <ns0:path d="M-2 -0.5 Q0 -2.5 2 -0.5 Q0 1.5 -2 -0.5" fill="rgba(212, 175, 55, 0.6)" />
+    <ns0:path d="M-1 2 Q1 0 2.5 2 Q1 4 -1 2" fill="rgba(212, 175, 55, 0.6)" />
+  </ns0:g>
+  
+  
+  <ns0:g transform="translate(40, 12)">
+    <ns0:path d="M-10 6 L-5 0 L0 4 L5 0 L10 6 L8 10 L-8 10 Z" fill="url(#goldGradient)" opacity="0.9" filter="url(#subtleShadow)" />
+    
+    <ns0:circle cx="-5" cy="3" r="1.2" fill="#ddd" opacity="0.9" />
+    <ns0:circle cx="0" cy="2" r="1.2" fill="#ddd" opacity="0.9" />
+    <ns0:circle cx="5" cy="3" r="1.2" fill="#ddd" opacity="0.9" />
+  </ns0:g>
+</ns0:g></ns0:svg>
