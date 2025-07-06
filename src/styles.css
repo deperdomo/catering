@@ -53,9 +53,9 @@ img {
   }
 }
 
-button, 
-a,
-[role="button"] {
+button:not(.progress-dot), 
+a:not(.progress-dot),
+[role="button"]:not(.progress-dot) {
   min-height: 44px;
   min-width: 44px;
   display: inline-flex;
@@ -66,9 +66,9 @@ a,
 }
 
 @media (max-width: 768px) {
-  button,
-  a,
-  [role="button"] {
+  button:not(.progress-dot),
+  a:not(.progress-dot),
+  [role="button"]:not(.progress-dot) {
     min-height: 48px;
   }
 }

@@ -49,20 +49,24 @@
   position: relative;
   height: 500px;
   overflow: hidden;
+  width: 100%;
 }
 
 .carousel-track {
   display: flex;
   height: 100%;
+  width: 100%;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
 .carousel-slide {
   min-width: 100%;
+  width: 100%;
   height: 100%;
   position: relative;
   flex-shrink: 0;
+  flex-grow: 0;
 }
 
 .slide-inner {
@@ -119,20 +123,6 @@
 .carousel-slide.active .slide-title {
   transform: translateY(0);
   opacity: 1;
-}
-
-.slide-indicator-line {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #7c3aed, #06b6d4);
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.8s ease 0.3s;
-}
-
-.carousel-slide.active .slide-indicator-line {
-  transform: scaleX(1);
 }
 
 /* Botones de navegación */
@@ -198,8 +188,8 @@
 }
 
 .progress-dot {
-  width: 5px;
-  height: 5px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.5);
@@ -227,41 +217,6 @@
   transform: scale(1.2);
 }
 
-/* Controles de autoplay */
-.autoplay-controls {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  z-index: 20;
-}
-
-.autoplay-button {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.autoplay-button:hover {
-  background: white;
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
-}
-
-.autoplay-icon {
-  width: 20px;
-  height: 20px;
-  color: #7c3aed;
-}
-
 /* Clase para screen readers */
 .sr-only {
   position: absolute;
@@ -276,6 +231,13 @@
 }
 
 /* Responsive Design */
+@media (min-width: 1200px) {
+  .progress-dot {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 @media (max-width: 1024px) {
   .carousel-viewport {
     height: 400px;
@@ -314,10 +276,46 @@
   
   .carousel-container {
     border-radius: 1.5rem;
+    position: relative !important;
+    width: 100% !important;
   }
   
   .carousel-viewport {
     height: 300px;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  .carousel-track {
+    width: 100% !important;
+    position: relative !important;
+    left: 0 !important;
+  }
+  
+  .carousel-slide {
+    min-width: 100% !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+  }
+  
+  .slide-inner {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+  }
+  
+  .slide-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
   }
   
   .slide-overlay {
@@ -348,21 +346,6 @@
     width: 10px;
     height: 10px;
   }
-  
-  .autoplay-controls {
-    top: 1rem;
-    right: 1rem;
-  }
-  
-  .autoplay-button {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .autoplay-icon {
-    width: 16px;
-    height: 16px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -378,9 +361,9 @@
     font-size: 1rem;
   }
   
-  .slide-indicator-line {
-    width: 50px;
-    height: 3px;
+  .progress-dot {
+    width: 8px;
+    height: 8px;
   }
 }
 
@@ -389,10 +372,8 @@
   .carousel-track,
   .slide-image,
   .slide-title,
-  .slide-indicator-line,
   .nav-button,
-  .progress-dot,
-  .autoplay-button {
+  .progress-dot {
     transition: none;
   }
   
@@ -407,8 +388,7 @@
     border: 2px solid #000;
   }
   
-  .nav-button,
-  .autoplay-button {
+  .nav-button {
     background: #fff;
     border: 2px solid #000;
   }
