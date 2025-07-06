@@ -1,9 +1,8 @@
-import { Component, HostListener } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
-gsap.registerPlugin(ScrollToPlugin);
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
+import { Subject, fromEvent, debounceTime, takeUntil } from 'rxjs';
+import { ScrollService } from '../services/scroll.service';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +11,12 @@ gsap.registerPlugin(ScrollToPlugin);
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   showMobileMenu = false;
   isScrolled = false;
-  private allowAutoScroll = false; // Control para scroll automático
+  private destroy$ = new Subject<void>();
+  private readonly document = inject(DOCUMENT);
+  private readonly scrollService = inject(ScrollService);
 
   menuItems = [
     { fragment: 'home', label: 'Home' },
@@ -26,39 +27,48 @@ export class HeaderComponent {
     { fragment: 'contacto', label: 'Contacto' }
   ];
 
-  constructor(private router: Router) {
-    // Removido el scroll automático en NavigationEnd
-    // El scroll solo ocurrirá cuando se haga clic explícitamente en un enlace del menú
-  }
-  toggleMobileMenu() {
-    this.showMobileMenu = !this.showMobileMenu;
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    // Suscribirse al estado de scroll optimizado
+    this.scrollService.isScrolled$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(isScrolled => {
+        this.isScrolled = isScrolled;
+      });
+
+    // Manejar redimensionamiento de ventana
+    fromEvent(this.document.defaultView!, 'resize')
+      .pipe(
+        debounceTime(100),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.handleResize();
+      });
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    this.isScrolled = window.scrollY > 50;
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    if (window.innerWidth >= 1024) {
+
+  private handleResize(): void {
+    if (this.document.defaultView!.innerWidth >= 1024) {
       this.showMobileMenu = false;
     }
   }
-  scrollToSection(id: string) {
-    // Solo hacer scroll cuando se llama explícitamente desde un clic
-    const section = document.getElementById(id);
-    if (section) {
-      const offset = 100;
-      const sectionPosition = section.getBoundingClientRect().top + window.scrollY - offset;
 
-      gsap.to(window, {
-        scrollTo: sectionPosition,
-        duration: 1.2,
-        ease: 'power2.out',
-        onComplete: () => {
-          this.showMobileMenu = false;
-        }
-      });
+  toggleMobileMenu(): void {
+    this.showMobileMenu = !this.showMobileMenu;
+  }
+
+  scrollToSection(id: string): void {
+    const headerOffset = 100;
+    const success = this.scrollService.scrollToElement(id, headerOffset);
+    
+    if (success) {
+      this.showMobileMenu = false;
     }
   }
 }

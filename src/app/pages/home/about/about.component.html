@@ -22,7 +22,7 @@
         </p>
       </div>
       
-      <button [routerLink]="[]" [fragment]="'contacto'" class="about-cta-btn" 
+      <button (click)="scrollToSection('contacto')" class="about-cta-btn" 
               appScrollAnimation="bounceIn" [delay]="700">
         <span>Contáctenos</span>
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
