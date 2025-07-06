@@ -189,6 +189,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .service-card-modern {
+    border-radius: 1.25rem;
+  }
+  
   .service-content {
     padding: 1.5rem;
   }
@@ -203,5 +207,68 @@
   
   .service-description {
     font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+  
+  .service-arrow {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .service-hover-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .service-card-modern:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card-modern {
+    border-radius: 1rem;
+  }
+  
+  .service-content {
+    padding: 1.25rem;
+  }
+  
+  .service-image-container {
+    height: 180px;
+  }
+  
+  .service-title {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+  
+  .service-description {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-header {
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-arrow {
+    width: 18px;
+    height: 18px;
+    margin-left: 0.75rem;
+  }
+  
+  .service-hover-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .service-cta-text {
+    font-size: 0.8rem;
+  }
+  
+  .service-card-modern:hover {
+    transform: translateY(-5px);
   }
 }

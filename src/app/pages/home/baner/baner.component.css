@@ -338,67 +338,85 @@
   .banner {
     background-attachment: scroll;
     padding: 1rem;
-    /* Agregar padding-top para compensar el header fijo */
-    padding-top: 100px;
+    min-height: 100vh;
+    padding-top: 85px;
   }
 
   .banner-content {
     padding: 1rem;
-    /* Asegurar que el contenido no se superponga con el header */
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .banner-description {
     font-size: 1rem;
     margin-bottom: 2rem;
+    line-height: 1.6;
   }
 
   .cta-buttons {
     flex-direction: column;
     width: 100%;
-    /* Agregar margin-bottom para dar espacio al scroll-indicator */
     margin-bottom: 4rem;
+    gap: 1rem;
   }
 
   .btn-primary,
   .btn-secondary {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     justify-content: center;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
   }
 
   .floating-element {
     display: none;
   }
 
-  /* Ajustar el scroll indicator para mobile */
   .scroll-indicator {
     bottom: 1rem;
     z-index: 5;
+  }
+
+  .banner-badge {
+    font-size: 0.75rem;
+    padding: 0.6rem 1.2rem;
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .banner {
-    /* Aumentar el padding-top para pantallas muy pequeñas */
-    padding-top: 110px;
+    padding-top: 90px;
+    min-height: calc(100vh - 10px);
   }
 
   .banner-badge {
-    font-size: 0.75rem;
-    padding: 0.5rem 1.5rem;
-    /* Asegurar que el badge tenga suficiente margen superior */
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.7rem;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .banner-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
 
   .banner-description {
     font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
   }
 
   .cta-buttons {
-    /* Más espacio para el scroll indicator en pantallas pequeñas */
     margin-bottom: 5rem;
+    gap: 0.75rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
   }
 
   .scroll-indicator {
@@ -407,8 +425,8 @@
   }
 
   .scroll-indicator svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 

@@ -222,6 +222,11 @@
   
   .about-content {
     text-align: center;
+    order: 2;
+  }
+  
+  .about-image-container {
+    order: 1;
   }
   
   .about-mission::before {
@@ -235,24 +240,66 @@
 
 @media (max-width: 768px) {
   .about-section {
-    padding: 2rem 0;
+    padding: 3rem 0;
+    min-height: auto;
   }
   
   .about-container {
-    gap: 2rem;
+    gap: 2.5rem;
     padding: 0 1rem;
   }
   
   .about-description {
     font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .about-mission {
+    font-size: 0.95rem;
   }
   
   .about-image {
-    height: 350px;
+    height: 300px;
   }
   
   .about-cta-btn {
     padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 2rem 0;
+  }
+  
+  .about-container {
+    gap: 2rem;
+    padding: 0 0.75rem;
+  }
+  
+  .about-badge span {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .about-description {
+    font-size: 0.95rem;
+  }
+  
+  .about-mission {
+    font-size: 0.9rem;
+  }
+  
+  .about-image {
+    height: 250px;
+  }
+  
+  .about-cta-btn {
+    padding: 0.8rem 1.25rem;
     font-size: 0.9rem;
   }
 }

@@ -1,59 +1,85 @@
-<div class="bg-[#e0dfe1]">
-  <div class="bg-gradient-to-r from-purple-50 to-pink-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-24 py-8 md:py-12">
-      <app-section-title [title1]="'DELICIAS CULINARIAS'"
-        [title2]="'Explore nuestras exquisitas presentaciones'"></app-section-title>
+<section class="gallery-section">
+  <div class="gallery-container">
+    <app-section-title [title1]="'DELICIAS CULINARIAS'"
+      [title2]="'Explore nuestras exquisitas presentaciones'"></app-section-title>
 
-      <!-- Carrusel -->
-      <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-[#e0dfe1]">
-        <div class="relative overflow-hidden rounded-2xl bg-white shadow-lg">
-          <!-- Contenedor principal -->
-          <div class="relative bg-[#fdf3fa] h-48 sm:h-64 md:h-96" (touchstart)="onTouchStart($event)"
-            (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
-            <!-- Contenedor de slides -->
-            <div class="absolute h-full flex transition-transform duration-500 ease-in-out"
-              [style.transform]="'translateX(-' + (currentSlide * slideWidthPercent) + '%)'">
-              <!-- Slides -->
-              <div *ngFor="let slide of slides"
-                class="relative h-full min-w-full sm:min-w-[50%] md:min-w-[33.333333%] flex-shrink-0 px-1 sm:px-2 carousel-slide">
-                <div
-                  class="h-full w-full relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-500 carousel-slide-inner">
-                  <img [src]="slide.image" [alt]="slide.title"
-                    class="w-full h-full object-cover object-center transform hover:scale-110 transition-transform duration-700 ease-out carousel-image">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end pb-4 sm:pb-6 md:pb-8 px-3 sm:px-4 md:px-6 carousel-caption">
-                    <h3 class="text-white text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2">{{ slide.title }}
-                    </h3>
+    <!-- Carrusel mejorado -->
+    <div class="carousel-wrapper">
+      <div class="carousel-container" 
+           (mouseenter)="pauseAutoPlay()" 
+           (mouseleave)="resumeAutoPlay()">
+        
+        <!-- Contenedor principal -->
+        <div class="carousel-viewport" 
+             (touchstart)="onTouchStart($event)"
+             (touchmove)="onTouchMove($event)" 
+             (touchend)="onTouchEnd()">
+          
+          <!-- Contenedor de slides -->
+          <div class="carousel-track"
+               [style.transform]="'translateX(-' + (currentSlide * slideWidthPercent) + '%)'">
+            
+            <!-- Slides -->
+            <div *ngFor="let slide of slides; let i = index"
+                 class="carousel-slide"
+                 [class.active]="i === currentSlide">
+              <div class="slide-inner">
+                <img [src]="slide.image" 
+                     [alt]="slide.title" 
+                     class="slide-image"
+                     loading="lazy">
+                <div class="slide-overlay">
+                  <div class="slide-content">
+                    <h3 class="slide-title">{{ slide.title }}</h3>
+                    <div class="slide-indicator-line"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Controles -->
-          <button
-            class="absolute top-1/2 left-1 sm:left-2 md:left-4 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110 transition-transform duration-300 carousel-control hidden sm:block"
-            (click)="onPrevClick()">
-            <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        <!-- Controles de navegación -->
+        <button class="nav-button nav-button-prev" 
+                (click)="previousSlide()"
+                [disabled]="slides.length <= 1">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button class="nav-button nav-button-next" 
+                (click)="nextSlide()"
+                [disabled]="slides.length <= 1">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Indicadores de progreso -->
+        <div class="progress-indicators">
+          <button *ngFor="let slide of slides; let i = index"
+                  class="progress-dot"
+                  [class.active]="i === currentSlide"
+                  (click)="goToSlide(i)">
+            <span class="sr-only">Ir a imagen {{ i + 1 }}</span>
+          </button>
+        </div>
+
+        <!-- Control de autoplay -->
+        <div class="autoplay-controls">
+          <button class="autoplay-button" 
+                  (click)="toggleAutoPlay()"
+                  [title]="isAutoPlaying ? 'Pausar' : 'Reproducir'">
+            <svg *ngIf="isAutoPlaying" class="autoplay-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+            <svg *ngIf="!isAutoPlaying" class="autoplay-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
             </svg>
           </button>
-          <button
-            class="absolute top-1/2 right-1 sm:right-2 md:right-4 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:scale-110 transition-transform duration-300 carousel-control hidden sm:block"
-            (click)="onNextClick()">
-            <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          <!-- Indicadores -->
-          <div class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
-            <button *ngFor="let slide of slides; let i = index"
-              class="w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 carousel-indicator" [ngClass]="{
-            'bg-purple-500': currentSlide === i,
-            'bg-white/60 hover:bg-white/80': currentSlide !== i
-          }" (click)="currentSlide = i"></button>
-          </div>
         </div>
       </div>
     </div>
+  </div>
+</section>

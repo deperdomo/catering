@@ -184,6 +184,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .hamburger span {
@@ -194,10 +195,24 @@
   border-radius: 1px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
+  position: absolute;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 16px;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  top: 8px;
+  transform: rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -206,7 +221,8 @@
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  top: 8px;
+  transform: rotate(-45deg);
 }
 
 /* Mobile Menu */
@@ -251,6 +267,10 @@
   transform: translateX(-20px);
   opacity: 0;
   animation: slideInMobile 0.3s ease forwards;
+  font-size: 1rem;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
 }
 
 .mobile-nav-link:hover {
@@ -258,6 +278,17 @@
   border-left-color: #ffd700;
   color: #ffd700;
   padding-left: 2rem;
+}
+
+@media (max-width: 480px) {
+  .mobile-nav-link {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  .mobile-nav-link:hover {
+    padding-left: 1.75rem;
+  }
 }
 
 @keyframes slideInMobile {
@@ -336,6 +367,10 @@
   .desktop-nav {
     display: none;
   }
+
+  .cta-button {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
@@ -344,11 +379,44 @@
   }
 
   .logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .header-content {
     height: 65px;
+    gap: 0.5rem;
+  }
+
+  .mobile-menu-button {
+    padding: 0.625rem;
+  }
+
+  .hamburger {
+    width: 22px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 0.75rem;
+  }
+
+  .logo h1 {
+    font-size: 1.25rem;
+  }
+
+  .header-content {
+    height: 60px;
+  }
+
+  .mobile-menu-button {
+    padding: 0.5rem;
+  }
+
+  .hamburger {
+    width: 20px;
+    height: 14px;
   }
 }
 
