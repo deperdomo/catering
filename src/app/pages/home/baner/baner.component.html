@@ -1,48 +1,31 @@
-<section class="banner" id="home">
-  <!-- Elementos flotantes animados -->
-  <div class="floating-elements">
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-  </div>
+<section id="inicio" class="hero" aria-labelledby="hero-title">
+  <img class="hero__photo"
+       src="img/web/hero-1620.webp"
+       srcset="img/web/hero-960.webp 960w, img/web/hero-1620.webp 1620w"
+       sizes="100vw" width="1620" height="1080" fetchpriority="high"
+       alt="Un cortador sirve jamón junto a una mesa de aperitivos y flores blancas">
 
-  <!-- Overlay con gradiente dinámico -->
-  <div class="banner-overlay"></div>
+  <div class="container hero__content">
+    <h1 id="hero-title">Catering para bodas, cumpleaños y empresas en Madrid</h1>
+    <p class="hero__lede">Daniela, Henry y Pablo preparan su menú a medida, los aperitivos de presentación y los cócteles de su celebración.</p>
 
-  <!-- Contenido principal -->
-  <div class="banner-content">
-    <div class="banner-badge">
-      ELEVA TU EVENTO
-    </div>
-
-    <h1 class="banner-title libre">
-      Ofrecemos una experiencia culinaria completa
-    </h1>
-
-    <p class="banner-description">
-      Transformamos cada ocasión en un momento extraordinario con nuestros servicios de catering premium.
-      Desde eventos íntimos hasta grandes celebraciones, creamos experiencias gastronómicas memorables.
-    </p>
-
-    <div class="cta-buttons">
-      <button (click)="scrollToSection('servicios')" class="btn-primary">
-        <span>Ver nuestros servicios</span>
-        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </button>
-
-      <button (click)="scrollToSection('contacto')" class="btn-secondary">
-        <span>Contactar ahora</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Indicador de scroll -->
-  <div class="scroll-indicator">
-    <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
-    <span class="text-sm mt-2">Desliza para explorar</span>
+    <form class="quote-bar" (submit)="$event.preventDefault(); draft.start()" aria-label="Empezar un presupuesto">
+      <label class="field">
+        <span class="field__label">Tipo de evento</span>
+        <select class="control" name="tipo" [(ngModel)]="draft.tipo">
+          <option value="" disabled>Elija uno</option>
+          @for (t of eventTypes; track t) { <option [value]="t">{{ t }}</option> }
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Fecha</span>
+        <input class="control" type="date" name="fecha" [min]="today" [(ngModel)]="draft.fecha">
+      </label>
+      <label class="field">
+        <span class="field__label">Invitados</span>
+        <input class="control" type="number" name="invitados" min="1" inputmode="numeric" placeholder="Ej.: 80" [(ngModel)]="draft.invitados">
+      </label>
+      <button class="btn btn--primary" type="submit">Pedir presupuesto</button>
+    </form>
   </div>
 </section>

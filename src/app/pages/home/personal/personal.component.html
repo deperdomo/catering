@@ -1,41 +1,21 @@
-<section class="personal-section">
-  <!-- Elementos flotantes decorativos -->
-  <div class="floating-shapes">
-    <div class="floating-shape"></div>
-    <div class="floating-shape"></div>
-    <div class="floating-shape"></div>
-  </div>
-
-  <div class="personal-container">
-    <app-section-title 
-      [title1]="'EXCELENCIA CULINARIA'" 
-      [title2]="'Mejore sus eventos con nosotros'" 
-    />
-    
-    <div class="team-grid">
-      <!-- Persona 1 -->
-      <app-persona 
-        [fotoUrl]="'img/home/profesionales/henry.jpg'" 
-        [nombre]="'Henry'" 
-        [cargo]="'Chef Ejecutivo'" 
-        [descripcion]="'Apasionado por la gastronomía, lidera la cocina con creatividad e innovación.'" 
-      />
-      
-      <!-- Persona 2 -->
-      <app-persona 
-        [fotoUrl]="'img/home/profesionales/daniela.jpg'" 
-        [nombre]="'Daniela'" 
-        [cargo]="'Cocinera'" 
-        [descripcion]="'Amante de los sabores auténticos, disfruta creando platos llenos de tradición y pasión.'" 
-      />
-      
-      <!-- Persona 3 -->
-      <app-persona 
-        [fotoUrl]="'img/home/profesionales/pablo.jpg'" 
-        [nombre]="'Pablo'" 
-        [cargo]="'Coctelero Experto'" 
-        [descripcion]="'Especialista en mixología, transforma ingredientes en experiencias únicas en cada copa.'" 
-      />
+<section id="equipo" class="section" aria-labelledby="equipo-title">
+  <div class="container">
+    <div class="intro">
+      <h2 id="equipo-title">Quién prepara su evento</h2>
+      <p class="lede">Daniela Catering cocina en Madrid para bodas, cumpleaños, cócteles y eventos de empresa. Detrás de cada mesa hay tres personas, y cada una se ocupa de una parte del servicio.</p>
     </div>
+
+    <ul class="team" role="list">
+      @for (p of people; track p.name) {
+        <li class="person">
+          <div class="person__photo">
+            <img [src]="'img/web/' + p.img + '-640.webp'" width="640" height="640" loading="lazy" [alt]="'Retrato de ' + p.name">
+          </div>
+          <h3>{{ p.name }}</h3>
+          <p class="person__role">{{ p.role }}</p>
+          <p class="person__text">{{ p.text }}</p>
+        </li>
+      }
+    </ul>
   </div>
 </section>

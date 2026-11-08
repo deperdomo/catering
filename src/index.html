@@ -1,27 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Daniela Catering - Servicios de Alta Cocina</title>
+  <title>Daniela Catering · Catering para bodas, cumpleaños y empresas en Madrid</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catering en Madrid para bodas, cumpleaños y empresas. Menús a medida, aperitivos de presentación, cocina de tradición y coctelero propio.">
+  <meta name="theme-color" content="#1F1F1F">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <!-- Favicon y metadatos -->
-  <link rel="icon" type="image/svg+xml" href="logo-daniela-catering.svg">
-  <link rel="apple-touch-icon" href="logo-daniela-catering.svg">
-  <link rel="shortcut icon" href="logo-daniela-catering.svg">
-  <meta name="description" content="Daniela Catering - Servicios de alta cocina para eventos especiales">
-  <meta name="keywords" content="catering, eventos, alta cocina, bodas, cumpleaños, empresarial">
-  <meta property="og:title" content="Daniela Catering">
-  <meta property="og:description" content="Servicios de alta cocina para eventos especiales">
-  <meta property="og:image" content="logo-daniela-catering.svg">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preload" href="fonts/ibarra-real-nova-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/figtree-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" imagesrcset="img/web/hero-960.webp 960w, img/web/hero-1620.webp 1620w" imagesizes="100vw" fetchpriority="high">
+
   <meta property="og:type" content="website">
-  </head>
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Daniela Catering">
+  <meta property="og:description" content="Catering en Madrid para bodas, cumpleaños y empresas.">
+  <meta property="og:image" content="og-image.jpg">
+
+  <!-- Inline so relative font URLs resolve against <base href>. -->
+  <style>
+    @font-face { font-family: 'Ibarra Real Nova'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/ibarra-real-nova-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/figtree-normal.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  </style>
+</head>
 <body>
   <app-root></app-root>
 </body>

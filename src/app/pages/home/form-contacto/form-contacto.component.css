@@ -1,41 +1,67 @@
-
-/* Estilos personalizados para Form Contacto */
-.form-container {
-  transition: box-shadow 0.5s ease;
-  background-clip: padding-box;
-}
-.form-container:hover {
-  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+.quote {
+  background: var(--ink);
+  color: var(--ink-on-dark);
 }
 
-.form-group {
-  position: relative;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.form-group:focus-within {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+.quote__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #a0aec0;
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
-.form-group input:focus::placeholder,
-.form-group textarea:focus::placeholder {
-  opacity: 0;
+.quote__lede {
+  margin-top: 1.1rem;
+  font-size: 1.15rem;
+  color: var(--ink-on-dark-soft);
+  max-width: 40ch;
 }
 
-.submit-btn {
-  background-size: 200% auto;
-  transition: transform 0.3s ease, background-position 0.5s ease;
+.facts {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule-on-dark);
 }
-.submit-btn:hover {
-  background-position: right center;
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+.facts dt { font-size: 0.9rem; color: var(--ink-on-dark-soft); }
+.facts dd { margin: 0.15rem 0 0; font-size: 1.1rem; overflow-wrap: anywhere; }
+.facts a { color: var(--bronze-light); }
+
+.quote__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1.25rem;
 }
-.submit-btn:active {
-  transform: scale(0.95);
+
+.field--wide { grid-column: 1 / -1; }
+
+.error {
+  color: var(--error-on-dark);
+  font-size: 0.95rem;
+}
+.control[aria-invalid='true'] { border-color: var(--error-on-dark); box-shadow: inset 0 0 0 1px var(--error-on-dark); }
+
+.quote__submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 0.5rem;
+}
+.quote__note { color: var(--ink-on-dark-soft); font-size: 0.95rem; max-width: 36ch; }
+
+.status { display: grid; gap: 1rem; outline: none; }
+.status p { color: var(--ink-on-dark-soft); max-width: 52ch; }
+.status__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; }
+.status__fallback { margin-top: 0.5rem; }
+.status__fallback .control { font-size: 0.95rem; }
+
+@media (max-width: 899px) {
+  .quote__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 539px) {
+  .quote__form { grid-template-columns: 1fr; }
+  .quote__submit .btn { width: 100%; }
 }

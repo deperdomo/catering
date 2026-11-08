@@ -1,74 +1,36 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
-import { Subject, fromEvent, debounceTime, takeUntil } from 'rxjs';
-import { ScrollService } from '../services/scroll.service';
+import { AfterViewInit, Component, DestroyRef, HostListener, inject, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [RouterModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  showMobileMenu = false;
-  isScrolled = false;
-  private destroy$ = new Subject<void>();
-  private readonly document = inject(DOCUMENT);
-  private readonly scrollService = inject(ScrollService);
-
-  menuItems = [
-    { fragment: 'home', label: 'Home' },
-    { fragment: 'acerca-de', label: 'Acerca de' },
-    { fragment: 'servicios', label: 'Servicios' },
-    { fragment: 'galeria', label: 'Galería' },
-    { fragment: 'testimonios', label: 'Testimonios' },
-    { fragment: 'contacto', label: 'Contacto' }
+export class HeaderComponent implements AfterViewInit {
+  readonly links = [
+    { href: '#equipo', label: 'Equipo' },
+    { href: '#servicios', label: 'Servicios' },
+    { href: '#galeria', label: 'Galería' },
   ];
+  readonly menuOpen = signal(false);
+  /** Phone-only shortcut to the quote, hidden wherever the page already shows a quote action or the footer. */
+  readonly showBottomBar = signal(false);
+  private readonly destroyRef = inject(DestroyRef);
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    // Suscribirse al estado de scroll optimizado
-    this.scrollService.isScrolled$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(isScrolled => {
-        this.isScrolled = isScrolled;
-      });
-
-    // Manejar redimensionamiento de ventana
-    fromEvent(this.document.defaultView!, 'resize')
-      .pipe(
-        debounceTime(100),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(() => {
-        this.handleResize();
-      });
+  @HostListener('document:keydown.escape')
+  closeMenu(): void {
+    this.menuOpen.set(false);
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
-  private handleResize(): void {
-    if (this.document.defaultView!.innerWidth >= 1024) {
-      this.showMobileMenu = false;
+  ngAfterViewInit(): void {
+    const visible = new Set<Element>();
+    const observer = new IntersectionObserver((entries) => {
+      for (const e of entries) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+      this.showBottomBar.set(visible.size === 0);
+    }, { rootMargin: '-80px 0px 0px 0px' }); // a section hidden under the sticky header does not count
+    for (const id of ['inicio', 'servicios', 'presupuesto', 'pie']) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     }
-  }
-
-  toggleMobileMenu(): void {
-    this.showMobileMenu = !this.showMobileMenu;
-  }
-
-  scrollToSection(id: string): void {
-    const headerOffset = 100;
-    const success = this.scrollService.scrollToElement(id, headerOffset);
-    
-    if (success) {
-      this.showMobileMenu = false;
-    }
+    this.destroyRef.onDestroy(() => observer.disconnect());
   }
 }

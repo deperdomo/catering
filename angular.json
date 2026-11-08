@@ -23,7 +23,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "ignore": ["img/home/**", "img/logo-*", "logo-daniela-catering.svg", "favicon.ico", "**/*.webp.json", "og-image.jpg.json"]
               }
             ],
             "styles": [

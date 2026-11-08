@@ -1,74 +1,20 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { SectionTitleComponent } from '../../../shared/section-title/section-title.component';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-galeria',
-  imports: [SectionTitleComponent, CommonModule],
   templateUrl: './galeria.component.html',
-  styleUrls: ['./galeria.component.css']
+  styleUrl: './galeria.component.css'
 })
-export class GaleriaComponent implements OnInit {
-  currentSlide = 0;
-  touchStartX = 0;
-  touchEndX = 0;
-  slideWidthPercent = 100;
-
-  slides = [
-    { image: 'img/home/carrusel/carrusel-01.jpg', title: 'Parrilladas Gourmet' },
-    { image: 'img/home/carrusel/carrusel-02.jpg', title: 'Postres Artesanales' },
-    { image: 'img/home/carrusel/carrusel-03.jpg', title: 'Tapas Selectas' },
-    { image: 'img/home/carrusel/carrusel-04.jpg', title: 'Cócteles Signature' },
-    { image: 'img/home/carrusel/carrusel-05.jpg', title: 'Bebidas Premium' },
-    { image: 'img/home/carrusel/carrusel-06.jpg', title: 'Productos Frescos' },
-    { image: 'img/home/carrusel/carrusel-07.jpg', title: 'Platos Tradicionales' },
-    { image: 'img/home/carrusel/carrusel-08.jpg', title: 'Recetas Caseras' },
-    { image: 'img/home/carrusel/carrusel-09.jpg', title: 'Vinos Selectos' },
-    { image: 'img/home/carrusel/carrusel-10.jpg', title: 'Cocina Vanguardia' }
+export class GaleriaComponent {
+  /** h is the 960px-wide file's height, so the browser reserves the right space. */
+  readonly photos = [
+    { img: 'tabla', h: 1440, caption: 'Tabla de embutidos, quesos y fruta', alt: 'Tabla con embutidos, quesos, uvas, higos y panes' },
+    { img: 'croquetas', h: 1440, caption: 'Croquetas recién hechas', alt: 'Manos partiendo una croqueta recién hecha' },
+    { img: 'coctel-naranja', h: 1450, caption: 'Cóctel de naranja', alt: 'Cóctel de naranja con romero en copa de balón' },
+    { img: 'salmon', h: 640, caption: 'Salmón con huevo de codorniz', alt: 'Bandeja de salmón con huevos de codorniz y sésamo' },
+    { img: 'tartaletas', h: 1440, caption: 'Tartaletas de merengue', alt: 'Tartaletas con merengue tostado' },
+    { img: 'raciones', h: 1280, caption: 'Raciones para compartir', alt: 'Platos de alitas y calamares fritos con salsa' },
+    { img: 'parrilla', h: 1440, caption: 'Carne a la parrilla', alt: 'Bandeja de carne a la parrilla servida con pinzas' },
+    { img: 'coctel-rosa', h: 1440, caption: 'Cóctel de frutos rojos', alt: 'Cóctel rosado con limón y frutos rojos' },
   ];
-
-  ngOnInit() {
-    this.calculateSlideWidth();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.calculateSlideWidth();
-  }
-
-  calculateSlideWidth() {
-    // En el nuevo diseño siempre mostramos una imagen a la vez
-    this.slideWidthPercent = 100;
-  }
-
-  // Métodos de navegación
-  previousSlide() {
-    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-  }
-
-  nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-  }
-
-  goToSlide(index: number) {
-    this.currentSlide = index;
-  }
-
-  // Métodos táctiles
-  onTouchStart(event: TouchEvent) {
-    this.touchStartX = event.touches[0].clientX;
-  }
-
-  onTouchMove(event: TouchEvent) {
-    this.touchEndX = event.touches[0].clientX;
-  }
-
-  onTouchEnd() {
-    const swipeThreshold = 50;
-    if (this.touchStartX - this.touchEndX > swipeThreshold) {
-      this.nextSlide();
-    } else if (this.touchEndX - this.touchStartX > swipeThreshold) {
-      this.previousSlide();
-    }
-  }
 }

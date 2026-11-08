@@ -1,68 +1,16 @@
-<section class="gallery-section">
-  <div class="gallery-container">
-    <app-section-title [title1]="'DELICIAS CULINARIAS'"
-      [title2]="'Explore nuestras exquisitas presentaciones'"></app-section-title>
+<section id="galeria" class="section" aria-labelledby="galeria-title">
+  <div class="container">
+    <h2 id="galeria-title">Lo que servimos</h2>
 
-    <!-- Carrusel mejorado -->
-    <div class="carousel-wrapper">
-      <div class="carousel-container">
-        
-        <!-- Contenedor principal -->
-        <div class="carousel-viewport" 
-             (touchstart)="onTouchStart($event)"
-             (touchmove)="onTouchMove($event)" 
-             (touchend)="onTouchEnd()">
-          
-          <!-- Contenedor de slides -->
-          <div class="carousel-track"
-               [style.transform]="'translateX(-' + (currentSlide * slideWidthPercent) + '%)'">
-            
-            <!-- Slides -->
-            <div *ngFor="let slide of slides; let i = index"
-                 class="carousel-slide"
-                 [class.active]="i === currentSlide">
-              <div class="slide-inner">
-                <img [src]="slide.image" 
-                     [alt]="slide.title" 
-                     class="slide-image"
-                     loading="lazy">
-                <div class="slide-overlay">
-                  <div class="slide-content">
-                    <h3 class="slide-title">{{ slide.title }}</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Controles de navegación -->
-        <button class="nav-button nav-button-prev" 
-                (click)="previousSlide()"
-                [disabled]="slides.length <= 1">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        
-        <button class="nav-button nav-button-next" 
-                (click)="nextSlide()"
-                [disabled]="slides.length <= 1">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
-
-        <!-- Indicadores de progreso -->
-        <div class="progress-indicators">
-          <button *ngFor="let slide of slides; let i = index"
-                  class="progress-dot"
-                  [class.active]="i === currentSlide"
-                  (click)="goToSlide(i)">
-            <span class="sr-only">Ir a imagen {{ i + 1 }}</span>
-          </button>
-        </div>
-      </div>
+    <div class="mosaic">
+      @for (p of photos; track p.img) {
+        <figure>
+          <img [src]="'img/web/' + p.img + '-960.webp'"
+               [attr.srcset]="'img/web/' + p.img + '-480.webp 480w, img/web/' + p.img + '-960.webp 960w'"
+               sizes="(min-width: 900px) 23vw, 50vw" width="960" [attr.height]="p.h" loading="lazy" [alt]="p.alt">
+          <figcaption>{{ p.caption }}</figcaption>
+        </figure>
+      }
     </div>
   </div>
 </section>

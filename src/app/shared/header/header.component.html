@@ -1,38 +1,40 @@
-<header class="header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
-  [class.scrolled]="isScrolled">
-  <div class="header-container">
-    <div class="header-content">
-      <!-- Logo -->
-      <div class="logo">
-        <h1 class="libre">Daniela Catering</h1>
-      </div>      <!-- Desktop Navigation -->
-      <nav class="desktop-nav">
-        @for (item of menuItems; track $index) {
-        <a href="javascript:void(0)" class="nav-link" (click)="scrollToSection(item.fragment)">
-          {{ item.label }}
-        </a>
+<header class="header">
+  <div class="container header__bar">
+    <a class="logo" href="#inicio">Daniela Catering</a>
+
+    <nav class="nav" aria-label="Principal">
+      @for (item of links; track item.href) {
+        <a class="nav__link" [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+
+    <a class="btn btn--primary header__cta" href="#presupuesto">Pedir presupuesto</a>
+
+    <button class="menu-button" type="button" aria-controls="menu-movil"
+            [attr.aria-expanded]="menuOpen()" (click)="menuOpen.set(!menuOpen())">
+      <span class="visually-hidden">{{ menuOpen() ? 'Cerrar menú' : 'Abrir menú' }}</span>
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+        @if (menuOpen()) {
+          <path d="M6 6l12 12M18 6L6 18" />
+        } @else {
+          <path d="M4 7h16M4 12h16M4 17h16" />
         }
-      </nav>      <!-- Mobile Menu Button -->
-      <div class="header-right">
-        <a href="javascript:void(0)" (click)="scrollToSection('contacto')" class="cta-button">Solicitar Presupuesto</a>
-        <button class="mobile-menu-button" (click)="toggleMobileMenu()">
-          <div class="hamburger" [class.active]="showMobileMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-      </div>
-    </div>    <!-- Mobile Menu -->
-    <div class="mobile-menu" [class.show]="showMobileMenu">
-      <nav class="mobile-nav">
-        @for (item of menuItems; track $index) {
-        <a href="javascript:void(0)" class="mobile-nav-link"
-          (click)="scrollToSection(item.fragment)">
-          {{ item.label }}
-        </a>
-        }
-      </nav>
-    </div>
+      </svg>
+    </button>
   </div>
+
+  @if (menuOpen()) {
+    <nav id="menu-movil" class="menu" aria-label="Principal">
+      @for (item of links; track item.href) {
+        <a class="menu__link" [href]="item.href" (click)="menuOpen.set(false)">{{ item.label }}</a>
+      }
+      <a class="menu__link" href="#presupuesto" (click)="menuOpen.set(false)">Pedir presupuesto</a>
+    </nav>
+  }
 </header>
+
+@if (showBottomBar()) {
+  <div class="bottom-bar">
+    <a class="btn btn--primary" href="#presupuesto">Pedir presupuesto</a>
+  </div>
+}

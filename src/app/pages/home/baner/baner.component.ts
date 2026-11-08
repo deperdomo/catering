@@ -1,17 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { ScrollService } from '../../../shared/services/scroll.service';
+import { FormsModule } from '@angular/forms';
+import { EVENT_TYPES, QuoteDraft, todayISO } from '../../../shared/quote-draft';
 
 @Component({
   selector: 'app-baner',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './baner.component.html',
   styleUrl: './baner.component.css'
 })
 export class BanerComponent {
-  private readonly scrollService = inject(ScrollService);
-
-  scrollToSection(id: string): void {
-    const headerOffset = 100;
-    this.scrollService.scrollToElement(id, headerOffset);
-  }
+  readonly draft = inject(QuoteDraft);
+  readonly eventTypes = EVENT_TYPES;
+  readonly today = todayISO();
 }

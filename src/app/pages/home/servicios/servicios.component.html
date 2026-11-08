@@ -1,59 +1,27 @@
-<section class="services-section">
-  <div class="services-overlay"></div>
-  
-  <div class="services-container">
-    <div class="services-header">
-      <div class="services-badge" appScrollAnimation="fadeInDown" [delay]="100">
-        <span>SERVICIOS PREMIUM</span>
-      </div>
-      
-      <div appScrollAnimation="fadeInUp" [delay]="200">
-        <app-section-title 
-          [title1]="'SERVICIOS QUE OFRECEMOS'" 
-          [title2]="'Eleve la categoría de sus eventos con un catering gourmet'" 
-        />
-      </div>
-    </div>    <!-- Grid de servicios -->
-    <div class="services-grid">
-      <!-- Servicio 1 -->
-      <app-servicio 
-        class="service-card"
-        appScrollAnimation="fadeInLeft" 
-        [delay]="100"
-        [imagen]="'img/home/eventos/catering-bodas.jpg'"
-        [titulo]="'Catering de bodas'"
-        [descripcion]="'Haga de su boda un evento único con nuestro catering gourmet, menús personalizados y presentaciones elegantes.'">
-      </app-servicio>
+<section id="servicios" class="section services" aria-labelledby="servicios-title">
+  <div class="container">
+    <h2 id="servicios-title">¿Qué va a celebrar?</h2>
 
-      <!-- Servicio 2 -->
-      <app-servicio 
-        class="service-card"
-        appScrollAnimation="fadeInRight" 
-        [delay]="200"
-        [imagen]="'img/home/eventos/catering-cumpleanos.jpg'"
-        [titulo]="'Celebraciones de cumpleaños'"
-        [descripcion]="'Celebre su cumpleaños con un catering delicioso y variado, diseñado para sorprender a sus invitados.'">
-      </app-servicio>
-
-      <!-- Servicio 3 -->
-      <app-servicio 
-        class="service-card"
-        appScrollAnimation="fadeInLeft" 
-        [delay]="300"
-        [imagen]="'img/home/eventos/catering-empresarial.jpg'"
-        [titulo]="'Catering empresarial'"
-        [descripcion]="'Ofrecemos un catering profesional y sofisticado para reuniones, conferencias y eventos corporativos de alto nivel.'">
-      </app-servicio>
-
-      <!-- Servicio 4 -->
-      <app-servicio 
-        class="service-card"
-        appScrollAnimation="fadeInRight" 
-        [delay]="400"
-        [imagen]="'img/home/eventos/catering-exclusivos.jpg'"
-        [titulo]="'Eventos exclusivos'"
-        [descripcion]="'Brinde una experiencia gastronómica inigualable con nuestro catering de lujo para eventos exclusivos y sofisticados.'">
-      </app-servicio>
+    <div class="tabs" role="tablist" aria-label="Servicios" (keydown)="onKeydown($event)">
+      @for (s of services; track s.id; let i = $index) {
+        <button class="tab" role="tab" type="button"
+                [id]="'tab-' + s.id" [attr.aria-controls]="'panel-' + s.id"
+                [attr.aria-selected]="i === active()" [tabIndex]="i === active() ? 0 : -1"
+                (click)="active.set(i)">{{ s.name }}</button>
+      }
     </div>
+
+    @for (s of services; track s.id; let i = $index) {
+      <div class="panel" role="tabpanel" [id]="'panel-' + s.id" [attr.aria-labelledby]="'tab-' + s.id" [hidden]="i !== active()">
+        <img class="panel__photo" [src]="'img/web/' + s.id + '-1320.webp'"
+             [attr.srcset]="'img/web/' + s.id + '-720.webp 720w, img/web/' + s.id + '-1320.webp 1320w'"
+             sizes="(min-width: 900px) 58vw, 100vw" width="1320" height="880" loading="lazy" [alt]="s.alt">
+        <div class="panel__body">
+          <h3>{{ s.name }}</h3>
+          <p>{{ s.text }}</p>
+          <button class="btn btn--primary" type="button" (click)="draft.start(s.tipo)">{{ s.cta }}</button>
+        </div>
+      </div>
+    }
   </div>
 </section>

@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T12:00:00Z",
+  "title": "Design System: Daniela Catering",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Papel", "canonical": "oklch(100% 0 0)", "tonalRamp": ["#0b0b0b", "#262626", "#454545", "#666666", "#898989", "#aeaeae", "#d1d1d1", "#eeeeee"] },
+      "paper-tint": { "role": "neutral", "displayName": "Mantel gris", "canonical": "oklch(95.8% 0.001 106.4)", "tonalRamp": ["#0b0b0b", "#262626", "#454544", "#666665", "#898988", "#aeaead", "#d1d1d0", "#eeeeee"] },
+      "ink": { "role": "neutral", "displayName": "Tinta", "canonical": "oklch(23.9% 0 0)", "tonalRamp": ["#0b0b0b", "#1f1f1f", "#454545", "#666666", "#898989", "#aeaeae", "#d1d1d1", "#eeeeee"] },
+      "ink-soft": { "role": "neutral", "displayName": "Tinta suave", "canonical": "oklch(44.1% 0.012 72.5)", "tonalRamp": ["#0c0b09", "#292623", "#49443f", "#6a655f", "#8e8882", "#b2ada7", "#d4d0cc", "#f0eeeb"] },
+      "ink-on-dark": { "role": "neutral", "displayName": "Papel sobre tinta", "canonical": "oklch(95.9% 0.007 80.7)", "tonalRamp": ["#0c0b0a", "#282624", "#474541", "#686661", "#8b8984", "#b0aeaa", "#d2d1ce", "#efeeec"] },
+      "ink-on-dark-soft": { "role": "neutral", "displayName": "Papel suave sobre tinta", "canonical": "oklch(83.8% 0.013 75.4)", "tonalRamp": ["#0c0b09", "#292622", "#49443e", "#6a655e", "#8e8881", "#b2ada7", "#d4d0cc", "#f0eeeb"] },
+      "rule": { "role": "neutral", "displayName": "Filete", "canonical": "oklch(90% 0.011 76.6)", "tonalRamp": ["#0c0b09", "#282623", "#48443f", "#6a655f", "#8d8882", "#b1ada8", "#d3d0cc", "#f0eeec"] },
+      "rule-on-dark": { "role": "neutral", "displayName": "Filete sobre tinta", "canonical": "rgb(255 255 255 / 0.16)" },
+      "control-border": { "role": "neutral", "displayName": "Borde de campo", "canonical": "oklch(62.8% 0.016 70.8)", "tonalRamp": ["#0d0b09", "#2a2621", "#4a443c", "#6c655c", "#90887f", "#b4ada5", "#d5d0cb", "#f1eeea"] },
+      "control-placeholder": { "role": "neutral", "displayName": "Texto de ejemplo", "canonical": "oklch(50.7% 0.015 71.2)", "tonalRamp": ["#0d0b09", "#2a2621", "#4a443d", "#6c655d", "#8f887f", "#b3ada5", "#d5d0cb", "#f1eeeb"] },
+      "bronze": { "role": "primary", "displayName": "Bronce de cubertería", "canonical": "oklch(51% 0.092 65)", "tonalRamp": ["#140800", "#3a1f01", "#633a04", "#8a5a26", "#b07d4a", "#d0a47b", "#eacbae", "#ffebd8"] },
+      "bronze-strong": { "role": "primary", "displayName": "Bronce bruñido", "canonical": "oklch(43.5% 0.082 66.5)", "tonalRamp": ["#130801", "#372106", "#603c11", "#865c2f", "#ab7f52", "#cca680", "#e7ccb1", "#fcebdb"] },
+      "bronze-light": { "role": "primary", "displayName": "Bronce claro", "canonical": "oklch(76.3% 0.102 73.5)", "tonalRamp": ["#140800", "#392000", "#623b00", "#895c12", "#ae7f3d", "#cea671", "#e8cca8", "#feebd5"] },
+      "bronze-light-strong": { "role": "primary", "displayName": "Bronce claro bruñido", "canonical": "oklch(82.8% 0.087 75.2)", "tonalRamp": ["#130900", "#362201", "#5e3e03", "#835e25", "#a8814a", "#c9a87a", "#e4cdae", "#fbecd8"] },
+      "error": { "role": "error", "displayName": "Error", "canonical": "oklch(47% 0.165 29.3)", "tonalRamp": ["#1e0100", "#4e0402", "#840c06", "#b13327", "#db5a4b", "#f88a7a", "#ffbaae", "#ffe1d8"] },
+      "error-on-dark": { "role": "error", "displayName": "Error sobre tinta", "canonical": "oklch(79.4% 0.099 36.2)", "tonalRamp": ["#170603", "#40190f", "#6d301f", "#964f3c", "#bd735e", "#dc9c8a", "#f3c5b8", "#ffe7de"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Solo el titular del inicio, centrado sobre la foto, máximo 25ch." },
+      "headline": { "displayName": "Headline", "purpose": "Titular de cada sección." },
+      "title": { "displayName": "Title", "purpose": "Nombres del equipo, título del servicio y del mensaje de confirmación." },
+      "tab": { "displayName": "Tab", "purpose": "Pestañas de servicios; 600 en la activa." },
+      "logo": { "displayName": "Logotipo", "purpose": "Nombre en la cabecera (1.35rem en móvil) y en el pie (1.75rem)." },
+      "lede": { "displayName": "Lede", "purpose": "Entradilla de sección, máximo 62ch, en tinta suave." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido con cifras alineadas." },
+      "label": { "displayName": "Label", "purpose": "Etiquetas de campo; aclaraciones en 400." },
+      "button": { "displayName": "Button", "purpose": "Texto de botones, en caja normal." }
+    },
+    "shadows": [
+      { "name": "headline-legibility", "value": "text-shadow: 0 1px 24px rgb(0 0 0 / 0.35)", "purpose": "Solo el titular del inicio sobre la foto." },
+      { "name": "hero-scrim", "value": "linear-gradient(to bottom, rgb(20 18 16 / 0) 20%, rgb(20 18 16 / 0.62) 55%, rgb(20 18 16 / 0.86) 100%)", "purpose": "Oscurece solo la franja inferior donde se apoya el texto del inicio." },
+      { "name": "inset-outline", "value": "inset 0 0 0 1px currentColor", "purpose": "Contorno del botón secundario y refuerzo del campo con error; técnica de borde, no elevación." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Curva única para todas las transiciones." },
+      { "name": "settle", "value": "1.6s, scale(1.06) a scale(1)", "purpose": "Asentamiento de la foto del inicio al cargar; el único movimiento de entrada." },
+      { "name": "control", "value": "0.15s", "purpose": "Cambio de borde de los campos." },
+      { "name": "button", "value": "0.2s", "purpose": "Cambio de relleno de los botones." },
+      { "name": "nav-underline", "value": "0.25s", "purpose": "Subrayado creciente de los enlaces de cabecera." },
+      { "name": "tab-underline", "value": "0.3s", "purpose": "Subrayado bronce de la pestaña activa." }
+    ],
+    "breakpoints": [
+      { "name": "form-single", "value": "540px" },
+      { "name": "stack-sm", "value": "640px" },
+      { "name": "mobile-nav", "value": "768px" },
+      { "name": "stack-md", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Toda acción Pedir presupuesto sobre papel o sobre la barra blanca del inicio.",
+      "html": "<button class=\"ds-btn-primary\">Pedir presupuesto</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.5rem; border: 0; border-radius: var(--radius, 2px); background: var(--bronze, #8a5a26); color: #fff; font: 600 1rem/1.2 var(--font-text, 'Figtree', system-ui, sans-serif); cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: var(--bronze-strong, #6f4718); } .ds-btn-primary:focus-visible { outline: 2px solid var(--bronze, #8a5a26); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón sobre tinta",
+      "kind": "button",
+      "refersTo": "button-on-dark",
+      "description": "La misma acción principal sobre las secciones de tinta.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-btn-on-dark\">Pedir presupuesto</button></div>",
+      "css": ".ds-dark { background: var(--ink, #1f1f1f); padding: 1.5rem; } .ds-btn-on-dark { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.5rem; border: 0; border-radius: var(--radius, 2px); background: var(--bronze-light, #d9a866); color: var(--ink, #1f1f1f); font: 600 1rem/1.2 var(--font-text, 'Figtree', system-ui, sans-serif); cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-on-dark:hover { background: var(--bronze-light-strong, #e8bf86); } .ds-btn-on-dark:focus-visible { outline: 2px solid var(--bronze, #8a5a26); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Acción secundaria sobre tinta, con contorno de 1px en el color del texto.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-btn-quiet\">Editar la solicitud</button></div>",
+      "css": ".ds-dark { background: var(--ink, #1f1f1f); color: var(--ink-on-dark, #f4f1ec); padding: 1.5rem; } .ds-btn-quiet { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.5rem; border: 0; border-radius: var(--radius, 2px); background: transparent; color: inherit; box-shadow: inset 0 0 0 1px currentColor; font: 600 1rem/1.2 var(--font-text, 'Figtree', system-ui, sans-serif); cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-quiet:hover { background: rgb(255 255 255 / 0.08); } .ds-btn-quiet:focus-visible { outline: 2px solid var(--bronze, #8a5a26); outline-offset: 3px; }"
+    },
+    {
+      "name": "Campo",
+      "kind": "input",
+      "refersTo": "control",
+      "description": "Campo con etiqueta encima, compartido por la barra del inicio y el formulario final.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field__label\">Invitados</span><input class=\"ds-control\" type=\"number\" placeholder=\"Ej.: 80\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 0.4rem; font-family: var(--font-text, 'Figtree', system-ui, sans-serif); color: var(--ink, #1f1f1f); } .ds-field__label { font-size: 0.9rem; font-weight: 600; } .ds-control { width: 100%; min-height: 48px; padding: 0.65rem 0.85rem; background: #fff; color: var(--ink, #1f1f1f); border: 1px solid #8f877e; border-radius: var(--radius, 2px); font: 400 1rem/1.3 var(--font-text, 'Figtree', system-ui, sans-serif); transition: border-color 0.15s; } .ds-control::placeholder { color: #6b645c; opacity: 1; } .ds-control:hover { border-color: var(--ink, #1f1f1f); } .ds-control:focus-visible { border-color: var(--ink, #1f1f1f); outline: 2px solid var(--bronze, #8a5a26); outline-offset: 1px; }"
+    },
+    {
+      "name": "Barra de presupuesto",
+      "kind": "custom",
+      "refersTo": "quote-bar",
+      "description": "Bloque blanco sobre la foto del inicio que empieza el borrador de presupuesto.",
+      "html": "<div class=\"ds-hero\"><form class=\"ds-quote-bar\"><label class=\"ds-qf\"><span>Tipo de evento</span><select class=\"ds-qc\"><option>Boda</option></select></label><label class=\"ds-qf\"><span>Fecha</span><input class=\"ds-qc\" type=\"date\"></label><label class=\"ds-qf\"><span>Invitados</span><input class=\"ds-qc\" placeholder=\"Ej.: 80\"></label><button class=\"ds-qb\" type=\"button\">Pedir presupuesto</button></form></div>",
+      "css": ".ds-hero { background: var(--ink, #1f1f1f); padding: 2rem 1rem; } .ds-quote-bar { display: grid; grid-template-columns: 1.3fr 1.1fr 0.8fr auto; align-items: end; gap: 1rem; max-width: 940px; margin: 0 auto; padding: 1.25rem; background: #fff; color: var(--ink, #1f1f1f); border-radius: var(--radius, 2px); font-family: var(--font-text, 'Figtree', system-ui, sans-serif); } .ds-qf { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; min-width: 0; } .ds-qc { min-height: 48px; padding: 0.65rem 0.85rem; background: #fff; border: 1px solid #8f877e; border-radius: 2px; font-size: 1rem; font-weight: 400; font-family: inherit; } .ds-qc:hover, .ds-qc:focus-visible { border-color: var(--ink, #1f1f1f); outline: 2px solid transparent; } .ds-qc:focus-visible { outline-color: var(--bronze, #8a5a26); outline-offset: 1px; } .ds-qb { min-height: 48px; padding: 0.75rem 1.5rem; border: 0; border-radius: 2px; background: var(--bronze, #8a5a26); color: #fff; font-size: 1rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-qb:hover { background: var(--bronze-strong, #6f4718); }"
+    },
+    {
+      "name": "Cabecera",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Cabecera blanca fija con logotipo en Ibarra, enlaces con subrayado creciente y botón principal.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-logo\" href=\"#\">Daniela Catering</a><nav class=\"ds-nav\"><a class=\"ds-nav__link\" href=\"#\">Equipo</a><a class=\"ds-nav__link\" href=\"#\">Servicios</a><a class=\"ds-nav__link\" href=\"#\">Galería</a></nav><a class=\"ds-header__cta\" href=\"#\">Pedir presupuesto</a></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 2rem; height: 72px; padding-inline: 1.5rem; background: #fff; color: var(--ink, #1f1f1f); border-bottom: 1px solid var(--rule, #e2ddd6); font-family: var(--font-text, 'Figtree', system-ui, sans-serif); } .ds-logo { font: 600 1.6rem/1 var(--font-display, 'Ibarra Real Nova', Georgia, serif); letter-spacing: -0.01em; color: inherit; text-decoration: none; white-space: nowrap; } .ds-nav { display: flex; gap: 2rem; margin-left: auto; } .ds-nav__link { font-weight: 500; color: inherit; text-decoration: none; padding-block: 0.5rem; background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px; transition: background-size 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav__link:hover, .ds-nav__link:focus-visible { background-size: 100% 1px; } .ds-nav__link:focus-visible { outline: 2px solid var(--bronze, #8a5a26); outline-offset: 3px; } .ds-header__cta { display: inline-flex; align-items: center; min-height: 48px; padding: 0.75rem 1.5rem; border-radius: 2px; background: var(--bronze, #8a5a26); color: #fff; font-weight: 600; text-decoration: none; transition: background-color 0.2s; } .ds-header__cta:hover { background: var(--bronze-strong, #6f4718); }"
+    },
+    {
+      "name": "Pestañas de servicios",
+      "kind": "custom",
+      "refersTo": "tab",
+      "description": "Pestañas en Ibarra sobre un filete; la activa lleva un subrayado bronce de 2px.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\">Bodas</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\">Cumpleaños</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"false\">Empresas</button></div>",
+      "css": ".ds-tabs { display: flex; flex-wrap: wrap; gap: 0.5rem 2.25rem; border-bottom: 1px solid var(--rule, #e2ddd6); } .ds-tab { position: relative; padding: 0.5rem 0 0.9rem; background: none; border: 0; font: 500 1.4rem/1.2 var(--font-display, 'Ibarra Real Nova', Georgia, serif); color: var(--ink-soft, #57524c); cursor: pointer; } .ds-tab::after { content: ''; position: absolute; inset: auto 0 -1px 0; height: 2px; background: var(--bronze, #8a5a26); transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tab:hover { color: var(--ink, #1f1f1f); } .ds-tab:focus-visible { outline: 2px solid var(--bronze, #8a5a26); outline-offset: 3px; } .ds-tab[aria-selected='true'] { color: var(--ink, #1f1f1f); font-weight: 600; } .ds-tab[aria-selected='true']::after { transform: scaleX(1); }"
+    },
+    {
+      "name": "Retrato del equipo",
+      "kind": "card",
+      "refersTo": "person",
+      "description": "Foto 4:5 sobre mantel gris, nombre en Ibarra, cargo en bronce y una frase.",
+      "html": "<div class=\"ds-person\"><div class=\"ds-person__photo\"></div><h3 class=\"ds-person__name\">Daniela</h3><p class=\"ds-person__role\">Cocina de tradición</p><p class=\"ds-person__text\">Prepara platos de sabores auténticos, con recetas de siempre.</p></div>",
+      "css": ".ds-person { max-width: 320px; font-family: var(--font-text, 'Figtree', system-ui, sans-serif); color: var(--ink, #1f1f1f); } .ds-person__photo { aspect-ratio: 4 / 5; background: var(--paper-tint, #f1f1f0); border-radius: 2px; margin-bottom: 1.25rem; } .ds-person__name { margin: 0; font: 600 1.9rem/1.08 var(--font-display, 'Ibarra Real Nova', Georgia, serif); letter-spacing: -0.012em; } .ds-person__role { margin: 0.35rem 0 0; color: var(--bronze, #8a5a26); font-weight: 600; } .ds-person__text { margin: 0.6rem 0 0; color: var(--ink-soft, #57524c); line-height: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La mesa bien puesta",
+    "overview": "El catering madrileño de siempre, hecho con precisión. El sistema es un mantel blanco con cubertería de bronce: papel blanco puro, tinta casi negra, un único metal cálido para todo lo que se pulsa y la fotografía de comida real como protagonista. La autoridad viene de la tipografía de imprenta en los titulares (Ibarra Real Nova) y del orden, no de efectos.\n\nLa densidad es holgada y de catálogo: secciones con mucho aire vertical, rejillas de dos a cuatro columnas, filetes de un píxel en lugar de tarjetas y sombras. La página alterna dos suelos: papel para contar (equipo, servicios, galería) y tinta para decidir (la foto del inicio, el formulario de presupuesto y el pie). El bronce cambia de tono según el suelo para mantener el contraste.\n\nLas fotos se muestran tal cual, sin velos de color ni filtros; solo el inicio lleva un degradado oscuro en la franja inferior donde se apoya el texto. El movimiento se limita a un asentamiento lento de la foto principal al cargar y a transiciones de estado breves.",
+    "keyCharacteristics": [
+      "Blanco y tinta con un único acento bronce, en dos tonos según el fondo.",
+      "Titulares en Ibarra Real Nova 600; todo lo demás en Figtree.",
+      "Esquinas casi rectas (2px) en botones, campos, la barra de presupuesto y fotos.",
+      "Separación por filetes finos, sin sombras decorativas.",
+      "Fotografía real a sangre o en proporciones fijas (4:5, 3:2), sin tratamiento de color.",
+      "Una sola acción principal, \"Pedir presupuesto\", repetida con el mismo estilo."
+    ],
+    "rules": [
+      { "name": "The One Bronze Rule", "body": "El bronce es el único color de la interfaz. Sobre papel se usa `bronze`; sobre tinta, `bronze-light`. Nunca se cruzan, y ningún otro tono entra en la interfaz.", "section": "colors" },
+      { "name": "The Two Grounds Rule", "body": "Solo hay dos suelos: papel y tinta. Las secciones para contar van en papel; las de decidir (inicio, presupuesto, pie) van en tinta. No hay fondos de color ni grises intermedios para secciones.", "section": "colors" },
+      { "name": "The Printer's Headline Rule", "body": "Ibarra Real Nova se reserva para titulares, el logotipo, las pestañas de servicios y el menú móvil. Todo texto de lectura, etiqueta o botón va en Figtree. Ningún texto va en mayúsculas sostenidas.", "section": "typography" },
+      { "name": "The Flat Table Rule", "body": "Ninguna superficie flota. Si algo necesita separarse, usa un filete o cambia de suelo.", "section": "elevation" },
+      { "name": "The Unfiltered Photo Rule", "body": "Las fotos no llevan velos de color, duotonos ni filtros. El único oscurecimiento permitido es un degradado inferior bajo texto superpuesto.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** usar `bronze` para acciones sobre papel y `bronze-light` para acciones sobre tinta, siempre con el contraste indicado.",
+      "**Do** separar secciones y grupos con filetes de 1px (`rule` / `rule-on-dark`).",
+      "**Do** mantener el radio de 2px en botones, campos, bloques y fotos.",
+      "**Do** dar a todo control un alto mínimo de 48px y el foco bronce de 2px.",
+      "**Do** mostrar las fotos sin tratamiento y en proporciones fijas (4:5, 3:2).",
+      "**Do** reservar el movimiento al asentamiento de la foto del inicio (1.6s) y a transiciones de estado de 0.15 a 0.3s con `cubic-bezier(0.16, 1, 0.3, 1)`, anuladas con movimiento reducido."
+    ],
+    "donts": [
+      "**Don't** añadir sombras de elevación, tarjetas flotantes ni brillos.",
+      "**Don't** poner velos de color o filtros sobre la fotografía.",
+      "**Don't** introducir un segundo color de acento ni recuperar el violeta y el dorado de la identidad anterior.",
+      "**Don't** usar Ibarra Real Nova en texto de lectura, etiquetas o botones, ni Figtree en titulares.",
+      "**Don't** poner antetítulos ni etiquetas en mayúsculas sobre los titulares.",
+      "**Don't** redondear esquinas más allá de 2px."
+    ]
+  }
+}

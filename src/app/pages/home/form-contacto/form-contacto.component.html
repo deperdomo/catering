@@ -1,137 +1,79 @@
-<div class="bg-[#e0dfe1] py-12 md:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        <!-- Sección izquierda -->
-        <div class="space-y-6 md:space-y-8">
-          <app-section-title 
-            [title1]="'Póngase en contacto'" 
-            [title2]="'Hagamos que su evento sea inolvidable'" 
-          />
-          
-          <!-- Información de contacto -->
-          <div class="space-y-4 md:space-y-6">
-            <!-- Email -->
-            <div class="flex items-start gap-3 md:gap-4">
-              <div class="mt-1 text-[#450aba]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="text-base md:text-lg font-medium text-gray-800">danielacatering&#64;gmail.com</p>
-              </div>
-            </div>
-  
-            <!-- Localidad -->
-            <div class="flex items-start gap-3 md:gap-4">
-              <div class="mt-1 text-[#450aba]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="text-base md:text-lg font-semibold text-gray-800">Localidad</p>
-                <p class="text-sm md:text-base text-gray-600">Madrid, ES</p>
-              </div>
-            </div>
-  
-            <!-- Horario -->
-            <div class="flex items-start gap-3 md:gap-4">
-              <div class="mt-1 text-[#450aba]">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <div>
-                <p class="text-base md:text-lg font-semibold text-gray-800">Horario</p>
-                <div class="space-y-1 md:space-y-2 text-sm md:text-base text-gray-600">
-                  <div class="flex justify-between gap-4">
-                    <span>Lunes - Domingo</span>
-                    <span>9:00am - 10:00pm</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Formulario -->
-        <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border-2 border-transparent hover:border-purple-300 transition-all duration-500 form-container">
-          <form class="space-y-4 md:space-y-6">
-            <!-- Nombre -->
-            <div class="relative form-group">
-              <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
-                Nombre <span class="text-red-600">*</span>
-              </label>
-              <input 
-                type="text" 
-                id="nombre"
-                placeholder="Sarah Doe" 
-                class="w-full px-4 py-3 md:px-5 md:py-4 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#450aba] focus:border-transparent transition-all placeholder-gray-400"
-              />
-            </div>
-  
-            <!-- Email -->
-            <div class="relative form-group">
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-                Email <span class="text-red-600">*</span>
-              </label>
-              <input 
-                type="email" 
-                id="email"
-                placeholder="email@ejemplo.com" 
-                class="w-full px-4 py-3 md:px-5 md:py-4 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#450aba] focus:border-transparent transition-all placeholder-gray-400"
-              />
-            </div>
-  
-            <!-- Teléfono -->
-            <div class="relative form-group">
-              <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">
-                Número de teléfono <span class="text-red-600">*</span>
-              </label>
-              <input 
-                type="tel" 
-                id="telefono"
-                placeholder="555 5555 55" 
-                class="w-full px-4 py-3 md:px-5 md:py-4 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#450aba] focus:border-transparent transition-all placeholder-gray-400"
-              />
-            </div>
-  
-            <!-- Mensaje -->
-            <div class="relative form-group">
-              <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">
-                Mensaje
-              </label>
-              <textarea 
-                id="mensaje"
-                rows="4"
-                placeholder="Escribe tu mensaje aquí..."
-                class="w-full px-4 py-3 md:px-5 md:py-4 border border-gray-300 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-[#450aba] focus:border-transparent transition-all placeholder-gray-400"
-              ></textarea>
-            </div>
-  
-            <!-- Privacidad -->
-            <div class="flex items-center">
-              <input 
-                type="checkbox" 
-                id="privacidad"
-                class="w-4 h-4 text-[#450aba] border-gray-300 rounded focus:ring-[#450aba]"
-              />
-              <label for="privacidad" class="ml-2 text-sm text-gray-600">
-                Acepto la política de privacidad
-              </label>
-            </div>
-  
-            <!-- Botón de enviar -->
-            <button 
-               type="submit" 
-              class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white py-3 md:py-4 px-6 rounded-full font-semibold shadow-lg transform transition-transform duration-300 hover:scale-105 submit-btn"
-            >
-              Enviar mensaje
-            </button>
-          </form>
-        </div>
-      </div>
+<section id="presupuesto" class="quote section" aria-labelledby="presupuesto-title">
+  <div class="container quote__grid">
+    <div class="quote__intro">
+      <h2 id="presupuesto-title">Pida su presupuesto</h2>
+      <p class="quote__lede">Cuéntenos qué celebra, cuándo y para cuántas personas. Con esos datos le preparamos una propuesta a medida.</p>
+      <dl class="facts">
+        <div><dt>Correo</dt><dd><a [href]="'mailto:' + email">{{ email }}</a></dd></div>
+        <div><dt>Zona de servicio</dt><dd>Madrid</dd></div>
+      </dl>
     </div>
+
+    @if (!sent()) {
+      <form class="quote__form" novalidate (submit)="$event.preventDefault(); submit()" aria-label="Solicitud de presupuesto">
+        <div class="field">
+          <label class="field__label" for="q-tipo">Tipo de evento</label>
+          <select id="q-tipo" class="control" name="tipo" [(ngModel)]="draft.tipo" required
+                  [attr.aria-invalid]="!!errors()['tipo']" [attr.aria-describedby]="errors()['tipo'] ? 'q-tipo-error' : null">
+            <option value="" disabled>Elija uno</option>
+            @for (t of eventTypes; track t) { <option [value]="t">{{ t }}</option> }
+          </select>
+          @if (errors()['tipo']) { <span id="q-tipo-error" class="error">{{ errors()['tipo'] }}</span> }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="q-fecha">Fecha del evento</label>
+          <input id="q-fecha" class="control" type="date" name="fecha" [min]="today" [(ngModel)]="draft.fecha" required
+                 [attr.aria-invalid]="!!errors()['fecha']" [attr.aria-describedby]="errors()['fecha'] ? 'q-fecha-error' : null">
+          @if (errors()['fecha']) { <span id="q-fecha-error" class="error">{{ errors()['fecha'] }}</span> }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="q-invitados">Invitados</label>
+          <input id="q-invitados" class="control" type="number" name="invitados" min="1" inputmode="numeric" placeholder="Ej.: 80"
+                 [(ngModel)]="draft.invitados" required
+                 [attr.aria-invalid]="!!errors()['invitados']" [attr.aria-describedby]="errors()['invitados'] ? 'q-invitados-error' : null">
+          @if (errors()['invitados']) { <span id="q-invitados-error" class="error">{{ errors()['invitados'] }}</span> }
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="q-zona">Zona o lugar <span class="field__hint">(opcional)</span></label>
+          <input id="q-zona" class="control" type="text" name="zona" placeholder="Barrio, salón o dirección" [(ngModel)]="draft.zona">
+        </div>
+
+        <div class="field field--wide">
+          <label class="field__label" for="q-nombre">Su nombre</label>
+          <input id="q-nombre" class="control" type="text" name="nombre" autocomplete="name" [(ngModel)]="nombre" required
+                 [attr.aria-invalid]="!!errors()['nombre']" [attr.aria-describedby]="errors()['nombre'] ? 'q-nombre-error' : null">
+          @if (errors()['nombre']) { <span id="q-nombre-error" class="error">{{ errors()['nombre'] }}</span> }
+        </div>
+
+        <div class="field field--wide">
+          <label class="field__label" for="q-mensaje">Algo más que debamos saber <span class="field__hint">(opcional)</span></label>
+          <textarea id="q-mensaje" class="control" name="mensaje" rows="4" placeholder="Alergias, estilo de servicio, horario…" [(ngModel)]="mensaje"></textarea>
+        </div>
+
+        <div class="field--wide quote__submit">
+          <button class="btn btn--on-dark" type="submit">Pedir presupuesto</button>
+          <p class="quote__note">Se abrirá su programa de correo con la solicitud ya escrita. Esta web no guarda sus datos.</p>
+        </div>
+      </form>
+    } @else {
+      <div id="q-status" class="status" role="status" tabindex="-1">
+        <h3>Su solicitud está lista para enviar</h3>
+        <p>Hemos abierto su programa de correo con la solicitud para {{ email }}. Revísela y pulse enviar.</p>
+        <p>¿No se ha abierto ningún programa de correo? Copie la solicitud y péguela en un correo a esa dirección.</p>
+        <div class="status__actions">
+          <button class="btn btn--on-dark" type="button" (click)="copy()">{{ copied() ? 'Solicitud copiada' : 'Copiar la solicitud' }}</button>
+          <button class="btn btn--quiet" type="button" (click)="edit()">Editar la solicitud</button>
+        </div>
+        @if (copyFailed()) {
+          <label class="field status__fallback">
+            <span class="field__label">No se pudo copiar automáticamente. Seleccione el texto y cópielo:</span>
+            <textarea class="control" readonly rows="9" [value]="requestText()"></textarea>
+          </label>
+        }
+      </div>
+    }
   </div>
+</section>
